@@ -3,6 +3,8 @@ export const title = "TFT Pool Calculator";
 export const description =
   "Estimate champions pool probability and optimize trait in the TFT lobby";
 
+export const githubLink = "https://github.com/ntsd/tft-pool-calculator";
+
 export const setMutator = "TFTSet9_Stage2";
 
 // how many champions in the pool for each
@@ -34,4 +36,11 @@ export const filterTraits = [
 ];
 
 // color by cost start with 1, 0 for non
-export const costToColor = ["black", "grey", "green", "blue", "purple", "yellow"];
+export const costToColor = [
+  "black",
+  "grey",
+  "green",
+  "blue",
+  "purple",
+  "yellow",
+];
