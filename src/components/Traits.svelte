@@ -8,10 +8,10 @@
     "Champions",
     "Estimate Pool",
     "Max Pool",
-    "Percent",
+    "Probability",
   ];
 
-  let sortBy: (typeof headers)[number] = "Estimate Pool";
+  let sortBy: (typeof headers)[number] = "Probability";
   let sortDesc = true;
 
   $: sortedTraitsPool = Object.values($traitsPoolAtom).sort((a, b) => {
@@ -31,7 +31,7 @@
         return b.maxPool - a.maxPool;
       case "Estimate Pool":
         return b.curPool - a.curPool;
-      case "Percent":
+      case "Probability":
         return b.curPool / b.maxPool - a.curPool / a.maxPool;
     }
     return b.curPool - a.curPool;

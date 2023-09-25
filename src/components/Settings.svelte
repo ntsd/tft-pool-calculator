@@ -37,7 +37,8 @@
         on:input={onSelectChange(index)}
         value={player.traits}
       />
-      <button
+      <!-- No more remove -->
+      <!-- <button
         class="btn btn-error"
         on:click={() => {
           settingsAtom.set({
@@ -48,27 +49,44 @@
               }),
             ],
           });
-        }}>Remove</button
-      >
+        }}>x</button
+      > -->
     </div>
   {/each}
-  <button
-    class="btn btn-primary"
-    on:click={() => {
-      settingsAtom.set({
-        ...$settingsAtom,
-        players: [
-          ...$settingsAtom.players,
-          {
-            id: uuidv4(),
-            name: `Player ${$settingsAtom.players.length + 1}`,
-            traits: [],
-          },
-        ],
-      });
-    }}
-    disabled={$settingsAtom.players.length > 6}>Add Player</button
-  >
+
+  <div class="flex justify-between">
+    <button
+      class="btn btn-primary"
+      on:click={() => {
+        settingsAtom.set({
+          ...$settingsAtom,
+          players: [
+            ...$settingsAtom.players,
+            {
+              id: uuidv4(),
+              name: `Player ${$settingsAtom.players.length + 1}`,
+              traits: [],
+            },
+          ],
+        });
+      }}
+      disabled={$settingsAtom.players.length > 6}>Add Player</button
+    >
+    <button
+      class="btn btn-ghost"
+      on:click={() => {
+        settingsAtom.set({
+          ...$settingsAtom,
+          players: [
+            ...$settingsAtom.players.map((p) => ({
+              ...p,
+              traits: [],
+            })),
+          ],
+        });
+      }}>Reset All</button
+    >
+  </div>
   <div class="flex gap-2 items-center justify-center">
     <span>Cost Filter :</span>
     <div class="join">

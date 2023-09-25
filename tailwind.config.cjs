@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,svelte,ts,svx,md}"],
   safelist: [
     {
-      pattern: /text-.*-600/,
+      pattern: /(text|bg)-.*-600/,
     },
   ],
   theme: {

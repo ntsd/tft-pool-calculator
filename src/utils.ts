@@ -10,3 +10,18 @@ export function round(num: number, decimal: number = 2): number {
   const div = Math.pow(10, decimal);
   return Math.round(num * div) / div;
 }
+
+export function groupByKey<T>(array: T[], callback: (value: T) => string) {
+  const groups: { [name: string]: T[] } = {};
+
+  array.forEach((element) => {
+    const groupName = callback(element);
+    if (groupName in groups) {
+      groups[groupName].push(element);
+    } else {
+      groups[groupName] = [element];
+    }
+  });
+
+  return groups;
+}
