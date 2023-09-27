@@ -1,7 +1,7 @@
 export const title = "TFT Pool Calculator";
 
 export const description =
-  "Estimate champions pool probability and optimize trait in the TFT lobby";
+  "Estimate champions pool probability and optimize traits in the TFT lobby";
 
 export const githubLink = "https://github.com/ntsd/tft-pool-calculator";
 

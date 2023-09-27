@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { costToColor } from "../const";
+  import { costToColor } from "tft-pool-calculator-core/const";
   import { championsPoolAtom } from "../store/tftStore";
   import { groupByKey, round } from "../utils";
 

@@ -1,29 +1,18 @@
 {
-  "name": "",
-  "description": "Astro Starter Template with Svelte, Tailwind, DaisyUI, and Service Worker",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "tft-pool-calculator",
+  "version": "1.0.0",
+  "description": "Estimate champions pool probability and optimize traits in the TFT lobby",
+  "keywords": [],
   "author": "Jirawat Boonkumnerd <contact@ntsd.dev> (https://ntsd.dev)",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "@astrojs/svelte": "^4.0.2",
-    "@astrojs/tailwind": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "astro": "^3.1.2",
-    "astrojs-service-worker": "^1.1.0",
-    "autoprefixer": "^10.4.16",
-    "daisyui": "^3.7.7",
-    "daisyui-ntsd": "^1.0.4",
-    "nanostores": "^0.9.3",
-    "postcss": "^8.4.30",
-    "svelte": "^4.2.1",
-    "svelte-select": "^5.7.0",
-    "tailwindcss": "^3.3.3"
-  }
+    "pnpm": "^6.18.0"
+  },
+  "scripts": {
+    "web": "npm --workspace=tft-pool-calculator-web run dev",
+    "web:build": "npm --workspace=tft-pool-calculator-web run build && cp -r packages/web/dist ."
+  },
+  "license": "MIT"
 }

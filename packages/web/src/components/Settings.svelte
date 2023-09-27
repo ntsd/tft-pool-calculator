@@ -3,7 +3,6 @@
   import type { Trait } from "../types";
   import { traits, settingsAtom } from "../store/tftStore";
   import { uuidv4 } from "../utils";
-  import { costToColor } from "../const";
 
   const onSelectChange = (index: number) => {
     return (e: CustomEvent<Trait[]>) => {
@@ -37,20 +36,6 @@
         on:input={onSelectChange(index)}
         value={player.traits}
       />
-      <!-- No more remove -->
-      <!-- <button
-        class="btn btn-error"
-        on:click={() => {
-          settingsAtom.set({
-            ...$settingsAtom,
-            players: [
-              ...$settingsAtom.players.filter(function (e) {
-                return e.id !== player.id;
-              }),
-            ],
-          });
-        }}>x</button
-      > -->
     </div>
   {/each}
 
