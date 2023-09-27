@@ -1,4 +1,4 @@
-import { atom } from "nanostores";
+import { atom, type WritableAtom } from "nanostores";
 import { getTraits } from "../api/api";
 import type {
   ChampionPool,
@@ -8,7 +8,6 @@ import type {
   TraitPool,
 } from "../types";
 import { getChampions } from "../api/api";
-import type { Champion } from "../types";
 import { filterTraits, poolSize } from "../const";
 import { uuidv4 } from "../utils";
 
@@ -71,7 +70,7 @@ champions.forEach((champion) => {
 // traits filter only when have more than 1 champions
 export const traits = Object.values(initTraitsPool);
 
-export const settingsAtom = atom<Settings>({
+export const settingsAtom: WritableAtom<Settings> = atom<Settings>({
   players: [
     {
       id: uuidv4(),
@@ -87,11 +86,16 @@ export const settingsAtom = atom<Settings>({
   filterCosts: [false, true, true, true, true],
 });
 
-export const championsPoolAtom = atom<{ [name: string]: ChampionPool }>({
-  ...initChampionsPool,
-});
+export const championsPoolAtom: WritableAtom<{ [name: string]: ChampionPool }> =
+  atom<{ [name: string]: ChampionPool }>({
+    ...initChampionsPool,
+  });
 
-export const traitsPoolAtom = atom<{ [name: string]: TraitPool }>({
+export const traitsPoolAtom: WritableAtom<{
+  [name: string]: TraitPool;
+}> = atom<{
+  [name: string]: TraitPool;
+}>({
   ...initTraitsPool,
 });
 
@@ -131,8 +135,8 @@ settingsAtom.subscribe((settings) => {
       if (settings.filterCosts[c.cost - 1]) {
         return true;
       }
-			// reduce max pool when the champions are filter by costs
-			newTraitsPool[traitName].maxPool -= poolSize[c.cost - 1];
+      // reduce max pool when the champions are filter by costs
+      newTraitsPool[traitName].maxPool -= poolSize[c.cost - 1];
       return false;
     });
   });

@@ -1,8 +1,11 @@
 <script lang="ts">
   import Select from "svelte-select";
-  import type { Trait } from "../types";
-  import { traits, settingsAtom } from "../store/tftStore";
-  import { uuidv4 } from "../utils";
+  import type { Trait } from "tft-pool-calculator-core/types";
+  import {
+    traits,
+    settingsAtom,
+  } from "tft-pool-calculator-core/store/tftStore";
+  import { uuidv4 } from "tft-pool-calculator-core/utils";
 
   const onSelectChange = (index: number) => {
     return (e: CustomEvent<Trait[]>) => {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { costToColor } from "tft-pool-calculator-core/const";
-  import { championsPoolAtom } from "../store/tftStore";
-  import { groupByKey, round } from "../utils";
+  import { championsPoolAtom } from "tft-pool-calculator-core/store/tftStore";
+  import { groupByKey, round } from "tft-pool-calculator-core/utils";
 
   $: championsByCosts = Object.fromEntries(
     // sort by cost ascending
