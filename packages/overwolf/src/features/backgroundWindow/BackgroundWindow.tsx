@@ -14,9 +14,10 @@ import {
 
 const { DESKTOP, INGAME } = WINDOW_NAMES;
 
-//Hearthstone Game Event Provider
+// TFT Game Event Provider
 enum Game {
-  "HearthStone" = 9898,
+  "TFT_GAME" = 5426,
+  "TFT_LAUNCHER" = 10902,
 }
 
 const BackgroundWindow = () => {
@@ -24,14 +25,14 @@ const BackgroundWindow = () => {
   const [desktopWindow] = useWindow(DESKTOP, OVERWOLF_HOOKS_OPTIONS);
   const [ingameWindow] = useWindow(INGAME, OVERWOLF_HOOKS_OPTIONS);
   const [{ event, info }, setGameFeatures] = useGameEventProvider<
-    HeathstoneOverwolfGEP.Info,
-    HeathstoneOverwolfGEP.Event
+    TFTOverwolfGEP.Info,
+    TFTOverwolfGEP.Event
   >(OVERWOLF_HOOKS_OPTIONS);
   const dispatch = useDispatch();
 
   const openStartupWindow = useCallback(() => {
     const gameRunning =
-      currentGame?.id === Game.HearthStone &&
+      currentGame?.id === Game.TFT_GAME &&
       (currentGame?.gameRunning || currentGame?.gameChanged);
     const currentWindow = gameRunning ? ingameWindow : desktopWindow;
     gameRunning && setGameFeatures(REQUIRED_FEATURES);

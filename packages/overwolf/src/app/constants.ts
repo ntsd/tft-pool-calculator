@@ -1,15 +1,12 @@
-//Hearthstone Game Events
+//TFT Game Events
 //@see Please read the overwolf.games.events documentation page to learn how to use Overwolf game events.
 
-//Heathstone Game Features
-//@see https://overwolf.github.io/docs/api/overwolf-games-events-hearthstone
+//TFT Game Features
+//@see https://overwolf.github.io/api/live-game-data/supported-games/teamfight-tactics
 export const REQUIRED_FEATURES = [
   'gep_internal',
-  'scene_state',
-  'collection',
-  'decks',
-  'match',
-  'match-info',
+	'game_info',
+	'live_client_data'
 ]
 
 // register gep events

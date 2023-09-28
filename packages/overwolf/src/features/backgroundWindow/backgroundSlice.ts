@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface OverwolfEventPayload {
-  event: HeathstoneOverwolfGEP.Event[]
+  event: TFTOverwolfGEP.Event[]
 }
 interface OverwolfInfoPayload {
-  info: HeathstoneOverwolfGEP.Info
+  info: TFTOverwolfGEP.Info
 }
 interface BackgroundState {
-  event: HeathstoneOverwolfGEP.Event[]
-  info: HeathstoneOverwolfGEP.Info
+  event: TFTOverwolfGEP.Event[]
+  info: TFTOverwolfGEP.Info
 
-  events: HeathstoneOverwolfGEP.Event[][]
-  infos: HeathstoneOverwolfGEP.Info[]
+  events: TFTOverwolfGEP.Event[][]
+  infos: TFTOverwolfGEP.Info[]
 }
 
 const initialState: BackgroundState = {
