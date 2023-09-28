@@ -1,0 +1,56 @@
+{
+  "name": "tft-pool-calculator",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cra-template-overwolf-typescript-redux": "3.0.3",
+    "i18next": "^23.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.2.2",
+    "react-redux": "^8.1.2",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start-remote-server": "node remotedev-server",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "pack-overwolf": "node create-production-overwolf-build",
+    "dist-overwolf": "cd build && tar -acf ../dist.v$npm_package_version.zip * && cd -",
+    "create-opk": "cd build/app && tar -acf ../../dist-opk.v$npm_package_version.zip * && cd - && node create-opk",
+    "build:overwolf": "npm run build && npm run pack-overwolf && npm run dist-overwolf && npm run create-opk"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@overwolf/types": "^3.12.0",
+    "@reduxjs/toolkit": "^1.9.6",
+    "@types/react-dom": "^18.2.8",
+    "@types/remote-redux-devtools": "^0.5.4",
+    "overwolf-hooks": "^3.0.6",
+    "remote-redux-devtools": "^0.5.16",
+    "remotedev-server": "^0.3.1",
+    "web-vitals": "^3.4.0"
+  },
+  "homepage": "."
+}
