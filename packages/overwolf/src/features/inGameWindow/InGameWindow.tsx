@@ -26,7 +26,7 @@ const InGameWindow = () => {
 
   return (
     <div className="in-game-container">
-      <Title color="white">In Game Window</Title>
+      <Title color="white">Pool Calculator</Title>
       <Feed
         title="Events"
         data={event.length ? event[0] : { content: "No events yet" }}

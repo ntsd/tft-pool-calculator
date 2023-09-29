@@ -3,7 +3,7 @@
   "type": "WebApp",
   "meta": {
     "name": "Overwolf Modern React Boilerplate-v3",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "minimum-overwolf-version": "0.120.0",
     "author": "Albérico Dias Barreto Filho",
     "icon": "IconMouseOver.png",
@@ -16,18 +16,18 @@
   "data": {
     "game_targeting": {
       "type": "dedicated",
-      "game_ids": [5426]
+      "game_ids": [5426, 10902]
     },
     "launch_events": [
       {
         "event": "GameLaunch",
         "event_data": {
-          "game_ids": [5426]
+          "game_ids": [5426, 10902]
         },
         "start_minimized": true
       }
     ],
-    "game_events": [5426],
+    "game_events": [5426, 10902],
     "start_window": "background",
     "windows": {
       "background": {

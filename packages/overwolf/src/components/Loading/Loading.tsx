@@ -1,3 +1,5 @@
 import React from "react";
 
-export const Loading = () => <p>Loading ...</p>;
+export const Loading = () => (
+  <span className="loading loading-spinner loading-lg"></span>
+);

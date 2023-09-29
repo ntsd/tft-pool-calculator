@@ -3,7 +3,6 @@ import { CurrentPage } from "./CurrentPage";
 import { Loading } from "components/Loading";
 import { WINDOW_NAMES } from "./constants";
 import { getCurrentWindow } from "utils";
-import "./App.css";
 import React from "react";
 
 //This is the main component of the app, it is the root of the app
