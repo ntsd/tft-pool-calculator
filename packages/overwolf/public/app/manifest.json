@@ -12,22 +12,33 @@
     "window_icon": "TaskbarIcon.png",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   },
-  "permissions": ["GameInfo"],
+  "permissions": [
+    "GameInfo"
+  ],
   "data": {
     "game_targeting": {
       "type": "dedicated",
-      "game_ids": [5426, 10902]
+      "game_ids": [
+        5426,
+        10902
+      ]
     },
     "launch_events": [
       {
         "event": "GameLaunch",
         "event_data": {
-          "game_ids": [5426, 10902]
+          "game_ids": [
+            5426,
+            10902
+          ]
         },
         "start_minimized": true
       }
     ],
-    "game_events": [5426, 10902],
+    "game_events": [
+      5426,
+      10902
+    ],
     "start_window": "background",
     "windows": {
       "background": {
@@ -58,25 +69,19 @@
         "file": "Files/index.html",
         "in_game_only": true,
         "focus_game_takeover": "ReleaseOnHidden",
+        "focus_game_takeover_release_hotkey": "showhide",
         "block_top_window_navigation": true,
+        "resizable": false,
         "transparent": true,
-        "resizable": true,
-        "size": {
+        "max_size": {
           "width": 350,
-          "height": 450
+          "height": 170
         },
         "min_size": {
           "width": 350,
-          "height": 450
+          "height": 170
         },
-        "max_size": {
-          "width": 350,
-          "height": 450
-        },
-        "start_position": {
-          "top": 200,
-          "left": 12
-        }
+        "keep_window_location": false
       }
     },
     "block_top_window_navigation": true,

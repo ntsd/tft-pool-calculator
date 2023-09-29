@@ -16,8 +16,8 @@ const { DESKTOP, INGAME } = WINDOW_NAMES;
 
 // TFT Game Event Provider
 enum Game {
-  "TFT_GAME" = 5426,
-  "TFT_LAUNCHER" = 10902,
+  "LOL_GAME" = 5426, // LOL and TFT use the same id
+  "LOL_LAUNCHER" = 10902,
 }
 
 const BackgroundWindow = () => {
@@ -32,7 +32,7 @@ const BackgroundWindow = () => {
 
   const openStartupWindow = useCallback(() => {
     const gameRunning =
-      currentGame?.id === Game.TFT_GAME &&
+      currentGame?.id === Game.LOL_GAME &&
       (currentGame?.gameRunning || currentGame?.gameChanged);
     const currentWindow = gameRunning ? ingameWindow : desktopWindow;
     gameRunning && setGameFeatures(REQUIRED_FEATURES);

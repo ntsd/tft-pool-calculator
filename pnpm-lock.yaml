@@ -38,12 +38,6 @@ importers:
       cra-template-overwolf-typescript-redux:
         specifier: 3.0.3
         version: 3.0.3
-      daisyui:
-        specifier: ^3.7.7
-        version: 3.7.7
-      daisyui-ntsd:
-        specifier: ^1.0.4
-        version: 1.0.4
       i18next:
         specifier: ^23.5.1
         version: 23.5.1
@@ -74,6 +68,9 @@ importers:
       tailwindcss:
         specifier: ^3.3.3
         version: 3.3.3
+      tft-pool-calculator-core:
+        specifier: workspace:^
+        version: link:../core
       typescript:
         specifier: ^5.2.2
         version: 5.2.2

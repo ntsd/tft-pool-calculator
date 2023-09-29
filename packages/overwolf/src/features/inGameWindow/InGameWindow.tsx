@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { Title } from "components/Title/Title";
-import { Feed } from "components/Feed";
 import { RootReducer } from "app/rootReducer";
 import { useSelector } from "react-redux";
 import "./InGame.css";
+import { setPosition } from "utils/setWindowPosition";
 
 const InGameWindow = () => {
   const { event, info } = useSelector((state: RootReducer) => state.background);
+
+  // TODO: check if it's TFT or LOL
 
   useEffect(() => {
     console.info(
@@ -24,17 +25,23 @@ const InGameWindow = () => {
     // or use https://github.com/AlbericoD/overwolf-modern-react-boilerplate#-remote-redux-debug
   }, [info]);
 
+  useEffect(() => {
+    setPosition("in_game", 350, 170);
+  }, []);
+
   return (
-    <div className="in-game-container">
-      <Title color="white">Pool Calculator</Title>
-      <Feed
-        title="Events"
-        data={event.length ? event[0] : { content: "No events yet" }}
-      />
-      <Feed
-        title="Infos"
-        data={Object.keys(info).length ? info : { content: "No infos yet" }}
-      />
+    <div className="overlay">
+      <div className="player-traits-container">
+        <div id="box-7" className="box"></div>
+        <div id="box-0" className="box"></div>
+        <div id="box-1" className="box"></div>
+        <div id="box-6" className="box"></div>
+        <div className="box invisible"></div>
+        <div id="box-2" className="box"></div>
+        <div id="box-5" className="box"></div>
+        <div id="box-4" className="box"></div>
+        <div id="box-3" className="box"></div>
+      </div>
     </div>
   );
 };
