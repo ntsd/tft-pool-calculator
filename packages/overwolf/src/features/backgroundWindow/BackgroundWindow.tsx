@@ -20,6 +20,7 @@ enum Game {
   "LOL_LAUNCHER" = 10902,
 }
 
+// TODO: check if it's TFT not LOL
 const BackgroundWindow = () => {
   const [currentGame] = useRunningGame(OVERWOLF_HOOKS_OPTIONS);
   const [desktopWindow] = useWindow(DESKTOP, OVERWOLF_HOOKS_OPTIONS);

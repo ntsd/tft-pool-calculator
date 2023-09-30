@@ -17,9 +17,12 @@ for setData in response["setData"]:
                 champions.append(champion)
 
 
-with open("./public/data/" + setMutator + "/traits.json", "w") as outfile:
+with open("./packages/overwolf/public/data/" + setMutator + "/traits.json", "w") as outfile:
+    outfile.write(json.dumps(traits, indent=4))
+with open("./packages/web/public/data/" + setMutator + "/traits.json", "w") as outfile:
     outfile.write(json.dumps(traits, indent=4))
 
-
-with open("./public/data/" + setMutator + "/champions.json", "w") as outfile:
+with open("./packages/overwolf/public/data/" + setMutator + "/champions.json", "w") as outfile:
+    outfile.write(json.dumps(champions, indent=4))
+with open("./packages/web/public/data/" + setMutator + "/champions.json", "w") as outfile:
     outfile.write(json.dumps(champions, indent=4))

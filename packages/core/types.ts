@@ -59,6 +59,7 @@ export interface Player {
   id: string;
   name: string;
   traits: Trait[];
+  isDead: boolean;
 }
 
 export interface Settings {

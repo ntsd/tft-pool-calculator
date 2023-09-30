@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  nanostores: ^0.9.3
+
 importers:
 
   .:
@@ -20,6 +23,9 @@ importers:
 
   packages/overwolf:
     devDependencies:
+      '@nanostores/react':
+        specifier: ^0.7.1
+        version: 0.7.1(nanostores@0.9.3)(react@18.2.0)
       '@overwolf/types':
         specifier: ^3.12.0
         version: 3.12.0
@@ -38,9 +44,18 @@ importers:
       cra-template-overwolf-typescript-redux:
         specifier: 3.0.3
         version: 3.0.3
+      daisyui:
+        specifier: ^3.7.7
+        version: 3.7.7
+      daisyui-ntsd:
+        specifier: ^1.0.4
+        version: 1.0.4
       i18next:
         specifier: ^23.5.1
         version: 23.5.1
+      nanostores:
+        specifier: ^0.9.3
+        version: 0.9.3
       overwolf-hooks:
         specifier: ^3.0.6
         version: 3.0.6(react@18.2.0)
@@ -2591,6 +2606,17 @@ packages:
 
   /@leichtgewicht/ip-codec@2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
+    dev: true
+
+  /@nanostores/react@0.7.1(nanostores@0.9.3)(react@18.2.0):
+    resolution: {integrity: sha512-EXQg9N4MdI4eJQz/AZLIx3hxQ6BuBmV4Q55bCd5YCSgEOAW7tGTsIZxpRXxvxLXzflNvHTBvfrDNY38TlSVBkQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0
+      react: '>=18.0.0'
+    dependencies:
+      nanostores: 0.9.3
+      react: 18.2.0
     dev: true
 
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:

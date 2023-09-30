@@ -14,5 +14,8 @@
     "web": "npm --workspace=tft-pool-calculator-web run dev",
     "web:build": "npm --workspace=tft-pool-calculator-web run build && cp -r packages/web/dist ."
   },
-  "license": "MIT"
+  "license": "MIT",
+  "resolutions": {
+    "nanostores": "^0.9.3"
+  }
 }

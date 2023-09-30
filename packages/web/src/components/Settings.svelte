@@ -54,6 +54,7 @@
               id: uuidv4(),
               name: `Player ${$settingsAtom.players.length + 1}`,
               traits: [],
+              isDead: false,
             },
           ],
         });

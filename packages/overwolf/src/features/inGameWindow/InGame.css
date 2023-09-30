@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.player-traits-container {
+.players-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -22,8 +22,9 @@
   flex-wrap: wrap;
 }
 
-.player-traits-container .box {
+.players-container .box {
   width: 33.33%;
   height: 33.33%;
   border: 1px solid red;
+  position: relative;
 }
