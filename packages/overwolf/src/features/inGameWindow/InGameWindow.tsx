@@ -8,8 +8,8 @@ import {
   settingsAtom,
   traitsPoolAtom,
   championsPoolAtom,
-} from "tft-pool-calculator-core/store/tftStore";
-import { Player } from "tft-pool-calculator-core/types";
+} from "../../core/store/tftStore";
+import { Player } from "../../core/types";
 import { SelectTrait } from "components/SelectTrait/SelectTrait";
 
 interface PlayerData {

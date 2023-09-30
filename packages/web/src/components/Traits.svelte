@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { costToColor } from "tft-pool-calculator-core/const";
-  import { championsPoolAtom, traitsPoolAtom } from "tft-pool-calculator-core/store/tftStore";
-  import { round } from "tft-pool-calculator-core/utils";
+  import { costToColor } from "tft-pool-calculator-core/src/const";
+  import { championsPoolAtom, traitsPoolAtom } from "tft-pool-calculator-core/src/store/tftStore";
+  import { round } from "tft-pool-calculator-core/src/utils";
 
   const headers = [
     "Trait",
