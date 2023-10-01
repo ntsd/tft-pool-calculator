@@ -1,7 +1,11 @@
 <script lang="ts">
   import { costToColor } from "tft-pool-calculator-core/src/const";
   import { championsPoolAtom } from "tft-pool-calculator-core/src/store/tftStore";
-  import { groupByKey, round } from "tft-pool-calculator-core/src/utils";
+  import {
+    groupByKey,
+    round,
+    getCDragonImage,
+  } from "tft-pool-calculator-core/src/utils";
 
   $: championsByCosts = Object.fromEntries(
     // sort by cost ascending
@@ -21,12 +25,7 @@
             costToColor[champion.cost]
           }-600 relative text-white text-xs md:text-md`}
         >
-          <img
-            alt={champion.name}
-            src={`https://raw.communitydragon.org/latest/game/${champion.squareIcon
-              .toLocaleLowerCase()
-              .replace(".tex", ".png")}`}
-          />
+          <img alt={champion.name} src={getCDragonImage(champion.squareIcon)} />
           <div class="text-center">
             {`${round(champion.curPool / champion.maxPool, 2)}`}
           </div>

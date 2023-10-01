@@ -3,6 +3,7 @@ import { WINDOW_NAMES, OVERWOLF_HOOKS_OPTIONS } from "app/constants";
 import { useWindow, useDrag } from "overwolf-hooks";
 import { SVGComponent } from "./DesktopHeaderSVG";
 import style from "./DesktopHeader.module.css";
+import { githubLink } from "core/const";
 
 const { DESKTOP, BACKGROUND } = WINDOW_NAMES;
 
@@ -37,18 +38,17 @@ export const DesktopHeader = () => {
         onMouseMove={onMouseMove}
       >
         <h3 className={style["header-title"]}>
-          {" "}
-          🐺 ICON - OVERWOLF-MODERN-REACT-BOILERPLATE-V3
+          TFT Pool Calculator
         </h3>
         <div className={style["window-controls-group"]}>
           <button
             className={`${style.icon} ${style["window-control"]} ${style["window-control-social"]} ${style.discord} `}
             onClick={() =>
-              overwolf.utils.openUrlInDefaultBrowser("https://discord.gg/")
+              overwolf.utils.openUrlInDefaultBrowser(githubLink)
             }
           >
             <svg>
-              <use xlinkHref="#window-control_discord" />
+              <use xlinkHref="#window-control_github" />
             </svg>
           </button>
           <button

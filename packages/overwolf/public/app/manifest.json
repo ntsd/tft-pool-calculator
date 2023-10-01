@@ -2,15 +2,15 @@
   "manifest_version": 1,
   "type": "WebApp",
   "meta": {
-    "name": "Overwolf Modern React Boilerplate-v3",
-    "version": "3.0.1",
+    "name": "TFT Pool Calculator",
+    "version": "0.0.1",
     "minimum-overwolf-version": "0.120.0",
-    "author": "Albérico Dias Barreto Filho",
+    "author": "Jirawat Boonkumnerd",
     "icon": "IconMouseOver.png",
     "icon_gray": "IconMouseNormal.png",
     "launcher_icon": "desktop-icon.ico",
     "window_icon": "TaskbarIcon.png",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    "description": "Estimate champions pool probability to find the best optimize traits in the TFT lobby"
   },
   "permissions": [
     "GameInfo"
@@ -73,14 +73,6 @@
         "block_top_window_navigation": true,
         "resizable": false,
         "transparent": true,
-        "max_size": {
-          "width": 350,
-          "height": 170
-        },
-        "min_size": {
-          "width": 350,
-          "height": 170
-        },
         "keep_window_location": false
       }
     },

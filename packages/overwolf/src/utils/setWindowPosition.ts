@@ -1,7 +1,5 @@
 export async function setPosition(
   windowId: string,
-  width: number,
-  height: number
 ) {
   const gameRes = await getGameResolution();
 
@@ -9,13 +7,11 @@ export async function setPosition(
     return;
   }
 
-  const appRes = await getAppResolution();
-
-  overwolf.windows.changeSize(windowId, width, height);
+  overwolf.windows.changeSize(windowId, gameRes.width, gameRes.height);
   overwolf.windows.changePosition(
     windowId,
-    gameRes.width - appRes.width,
-    gameRes.height - appRes.height
+    0,
+    0
   );
 }
 

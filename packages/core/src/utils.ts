@@ -25,3 +25,9 @@ export function groupByKey<T>(array: T[], callback: (value: T) => string) {
 
   return groups;
 }
+
+export function getCDragonImage(url: string) {
+  return `https://raw.communitydragon.org/latest/game/${url
+    .toLocaleLowerCase()
+    .replace(".tex", ".png")}`;
+}
