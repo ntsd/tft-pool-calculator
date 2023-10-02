@@ -1,6 +1,4 @@
-export async function setPosition(
-  windowId: string,
-) {
+export async function setPosition(windowId: string) {
   const gameRes = await getGameResolution();
 
   if (gameRes === null) {
@@ -8,11 +6,7 @@ export async function setPosition(
   }
 
   overwolf.windows.changeSize(windowId, gameRes.width, gameRes.height);
-  overwolf.windows.changePosition(
-    windowId,
-    0,
-    0
-  );
+  overwolf.windows.changePosition(windowId, 0, 0);
 }
 
 export async function getGameResolution(): Promise<{
@@ -21,14 +15,15 @@ export async function getGameResolution(): Promise<{
 }> {
   return new Promise((resolve, reject) => {
     overwolf.games.getRunningGameInfo((result) => {
-      if (result && result.logicalWidth) {
+      if (result && result.width) {
         resolve({
-          width: result.logicalWidth,
-          height: result.logicalHeight,
+          width: result.width,
+          height: result.height,
         });
-      } else {
-        reject(null);
+        return;
       }
+
+      reject(null);
     });
   });
 }

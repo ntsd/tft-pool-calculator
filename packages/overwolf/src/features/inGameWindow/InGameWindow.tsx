@@ -4,10 +4,7 @@ import { useSelector } from "react-redux";
 import "./InGame.css";
 import { setPosition } from "utils/setWindowPosition";
 import { useStore } from "@nanostores/react";
-import {
-  settingsAtom,
-  traits,
-} from "../../core/store/tftStore";
+import { settingsAtom, traits } from "../../core/store/tftStore";
 import { Player } from "../../core/types";
 import { getCDragonImage } from "core/utils";
 import PoolModal from "components/PoolModal/PoolModal";
@@ -36,7 +33,7 @@ async function setupRoster(playerDatas: PlayerData[]) {
     players: newPlayers,
   });
 
-  // setPosition("in_game");
+  setPosition("in_game");
 }
 
 function updateRoster(playerDatas: PlayerData[]) {
@@ -70,8 +67,8 @@ function handleRoster(jsonStr: string) {
 
   players.sort((a, b) => a.index - b.index);
 
-  if (players.length) {
-    if (settingsAtom.get().players.length && players.length) {
+  if (players.length > 0) {
+    if (settingsAtom.get().players.length > 0) {
       updateRoster(players);
     } else {
       setupRoster(players);
@@ -87,9 +84,7 @@ const InGameWindow = () => {
   const selectTraitsModalRef = useRef<HTMLDialogElement>(null);
 
   const handleSelectTrait = (index: number) => {
-    console.log("setSelectingIndex", index);
     setSelectingIndex(index);
-    console.log("selectTraitsModalRef.current", selectTraitsModalRef.current);
     selectTraitsModalRef.current?.showModal();
   };
 
@@ -145,12 +140,11 @@ const InGameWindow = () => {
   }, []);
 
   useEffect(() => {
-    // console.info("[InGameWindow][info]", JSON.stringify(info, null, 2));
-    const feature = info.feature;
-    const key = info.key;
-
-    if (feature === "roster" && key === "player_status") {
-      handleRoster(info.value);
+    console.info("[InGameWindow][info]", JSON.stringify(info, null, 2));
+    const roster = info["roster"];
+    if (roster) {
+      // @ts-ignore
+      handleRoster(roster["player_status"]);
     }
   }, [info]);
 
@@ -182,7 +176,7 @@ const InGameWindow = () => {
                 ✕
               </button>
             </form>
-            <h3 className="text-lg font-bold">Select Trait (select up to 3)</h3>
+            <h3 className="text-lg font-bold">Select Trait (select up to 4)</h3>
             <div className="grid grid-cols-6 py-4 w-full gap-1">
               {traits.map((trait) => {
                 const has = settings.players[selectingIndex].traits.some(
@@ -203,9 +197,9 @@ const InGameWindow = () => {
                             (t) => t.name !== trait.name
                           );
                       } else {
-                        // skip if select more than 3
+                        // skip if selected more than 3
                         if (
-                          newSetting.players[selectingIndex].traits.length > 2
+                          newSetting.players[selectingIndex].traits.length > 3
                         ) {
                           return;
                         }

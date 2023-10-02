@@ -4,12 +4,12 @@
 //TFT Game Features
 //@see https://overwolf.github.io/api/live-game-data/supported-games/teamfight-tactics
 export const REQUIRED_FEATURES = [
-  'gep_internal',
+  // 'gep_internal',
   'game_info',
-  'live_client_data',
+  // 'live_client_data',
   'roster',
-  'match_info',
-  'board'
+  // 'match_info',
+  // 'board'
 ];
 
 // register gep events
