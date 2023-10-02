@@ -78,13 +78,14 @@ function handleRoster(jsonStr: string) {
 
 // https://overwolf.github.io/api/live-game-data/supported-games/teamfight-tactics
 const InGameWindow = () => {
-  const { info } = useSelector((state: RootReducer) => state.background);
+  const { info, event } = useSelector((state: RootReducer) => state.background);
   const settings = useStore(settingsAtom);
   const [selectingIndex, setSelectingIndex] = useState<number>(-1);
   const selectTraitsModalRef = useRef<HTMLDialogElement>(null);
   const [searchValue, setSearchValue] = React.useState("");
 
   const handleSelectTrait = (index: number) => {
+    setSearchValue("");
     setSelectingIndex(index);
     selectTraitsModalRef.current?.showModal();
   };
@@ -141,7 +142,21 @@ const InGameWindow = () => {
   }, []);
 
   useEffect(() => {
-    console.info("[InGameWindow][info]", JSON.stringify(info, null, 2));
+    console.info("[event]", JSON.stringify(event, null, 2));
+    if (event.length > 0) {
+      // @ts-ignore
+      if (event.name === "match_start") {
+				// reset if match start
+        settingsAtom.set({
+          players: [],
+          filterCosts: [false, true, true, true, true],
+        });
+      }
+    }
+  }, [event]);
+
+  useEffect(() => {
+    console.info("[info]", JSON.stringify(info, null, 2));
     const roster = info["roster"];
     if (roster) {
       // @ts-ignore
@@ -180,6 +195,7 @@ const InGameWindow = () => {
             <h3 className="text-lg font-bold">Select Trait (select up to 4)</h3>
             <input
               type="text"
+              autoFocus
               placeholder="Search"
               className="input input-bordered w-full"
               onChange={(e) => {
@@ -190,7 +206,9 @@ const InGameWindow = () => {
             <div className="grid grid-cols-6 py-4 w-full gap-1">
               {traits
                 .sort((a, b) => b.champions.length - a.champions.length)
-                .filter((v) => v.name.startsWith(searchValue))
+                .filter((v) =>
+                  v.name.toLowerCase().startsWith(searchValue.toLowerCase())
+                )
                 .map((trait) => {
                   const has = settings.players[selectingIndex].traits.some(
                     (t) => t.name === trait.name

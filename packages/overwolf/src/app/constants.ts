@@ -8,7 +8,7 @@ export const REQUIRED_FEATURES = [
   'game_info',
   // 'live_client_data',
   'roster',
-  // 'match_info',
+  'match_info',
   // 'board'
 ];
 
