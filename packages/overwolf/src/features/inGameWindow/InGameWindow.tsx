@@ -82,12 +82,14 @@ const InGameWindow = () => {
   const settings = useStore(settingsAtom);
   const [selectingIndex, setSelectingIndex] = useState<number>(-1);
   const selectTraitsModalRef = useRef<HTMLDialogElement>(null);
-  const [searchValue, setSearchValue] = React.useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const searchInput = useRef<HTMLInputElement>(null);
 
   const handleSelectTrait = (index: number) => {
     setSearchValue("");
     setSelectingIndex(index);
     selectTraitsModalRef.current?.showModal();
+    searchInput.current?.focus();
   };
 
   const createPlayerBox = (index: number) => (
@@ -146,7 +148,7 @@ const InGameWindow = () => {
     if (event.length > 0) {
       // @ts-ignore
       if (event.name === "match_start") {
-				// reset if match start
+        // reset if match start
         settingsAtom.set({
           players: [],
           filterCosts: [false, true, true, true, true],
@@ -202,6 +204,7 @@ const InGameWindow = () => {
                 setSearchValue(e.target.value);
               }}
               value={searchValue}
+              ref={searchInput}
             />
             <div className="grid grid-cols-6 py-4 w-full gap-1">
               {traits
