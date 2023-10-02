@@ -146,14 +146,15 @@ const InGameWindow = () => {
   useEffect(() => {
     console.info("[event]", JSON.stringify(event, null, 2));
     if (event.length > 0) {
-      // @ts-ignore
-      if (event.name === "match_start") {
-        // reset if match start
-        settingsAtom.set({
-          players: [],
-          filterCosts: [false, true, true, true, true],
-        });
-      }
+      event.forEach((ev) => {
+        if (ev.name === "match_start") {
+          // reset if match start
+          settingsAtom.set({
+            players: [],
+            filterCosts: [false, true, true, true, true],
+          });
+        }
+      });
     }
   }, [event]);
 
