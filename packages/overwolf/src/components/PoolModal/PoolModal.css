@@ -1,0 +1,28 @@
+th button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+th button {
+  padding-right: 18px;
+  position: relative;
+}
+th button:before,
+th button:after {
+  border: 4px solid transparent;
+  content: "";
+  display: block;
+  height: 0;
+  right: 5px;
+  top: 50%;
+  position: absolute;
+  width: 0;
+}
+th button.arrow-up:before {
+  border-bottom-color: #666;
+  margin-top: -9px;
+}
+th button.arrow-down:after {
+  border-top-color: #666;
+  margin-top: 1px;
+}

@@ -1,11 +1,11 @@
 <script lang="ts">
   import Select from "svelte-select";
-  import type { Trait } from "tft-pool-calculator-core/types";
+  import type { Trait } from "tft-pool-calculator-core/src/types";
   import {
     traits,
     settingsAtom,
-  } from "tft-pool-calculator-core/store/tftStore";
-  import { uuidv4 } from "tft-pool-calculator-core/utils";
+  } from "tft-pool-calculator-core/src/store/tftStore";
+  import { uuidv4 } from "tft-pool-calculator-core/src/utils";
 
   const onSelectChange = (index: number) => {
     return (e: CustomEvent<Trait[]>) => {
@@ -54,6 +54,7 @@
               id: uuidv4(),
               name: `Player ${$settingsAtom.players.length + 1}`,
               traits: [],
+              isDead: false,
             },
           ],
         });

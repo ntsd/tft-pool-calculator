@@ -1,7 +1,7 @@
 {
   "name": "tft-pool-calculator",
   "version": "1.0.0",
-  "description": "Estimate champions pool probability and optimize traits in the TFT lobby",
+  "description": "Estimate champions pool probability to find the best optimize traits in the TFT lobby",
   "keywords": [],
   "author": "Jirawat Boonkumnerd <contact@ntsd.dev> (https://ntsd.dev)",
   "workspaces": [
@@ -14,5 +14,8 @@
     "web": "npm --workspace=tft-pool-calculator-web run dev",
     "web:build": "npm --workspace=tft-pool-calculator-web run build && cp -r packages/web/dist ."
   },
-  "license": "MIT"
+  "license": "MIT",
+  "resolutions": {
+    "nanostores": "^0.9.3"
+  }
 }

@@ -71,18 +71,7 @@ champions.forEach((champion) => {
 export const traits = Object.values(initTraitsPool);
 
 export const settingsAtom: WritableAtom<Settings> = atom<Settings>({
-  players: [
-    {
-      id: uuidv4(),
-      name: "Player 1",
-      traits: [],
-    },
-    {
-      id: uuidv4(),
-      name: "Player 2",
-      traits: [],
-    },
-  ],
+  players: [],
   filterCosts: [false, true, true, true, true],
 });
 
@@ -111,16 +100,6 @@ settingsAtom.subscribe((settings) => {
     [name: string]: TraitPool;
   } = JSON.parse(JSON.stringify(initTraitsPool));
 
-  // No need to reset anymore
-  // reset current pool to max pool
-  // Object.keys(newTraitsPool).forEach((traitName) => {
-  //   newTraitsPool[traitName].curPool = newTraitsPool[traitName].maxPool;
-  // });
-  // Object.keys(newChampionsPool).forEach((championName) => {
-  //   newChampionsPool[championName].curPool =
-  //     newChampionsPool[championName].maxPool;
-  // });
-
   // filter champions by costs
   Object.keys(newChampionsPool).forEach((key) => {
     const champion = newChampionsPool[key];
@@ -143,6 +122,8 @@ settingsAtom.subscribe((settings) => {
 
   // update champion current pool from  all traits players playing
   settings.players.forEach((player) => {
+    if (player.isDead) return;
+
     // estimate champion set of this player
     let championsSet = new Set<string>();
     player.traits.forEach((trait) => {
