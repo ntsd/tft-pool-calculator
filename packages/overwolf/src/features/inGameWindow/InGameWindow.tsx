@@ -82,6 +82,7 @@ const InGameWindow = () => {
   const settings = useStore(settingsAtom);
   const [selectingIndex, setSelectingIndex] = useState<number>(-1);
   const selectTraitsModalRef = useRef<HTMLDialogElement>(null);
+  const [searchValue, setSearchValue] = React.useState("");
 
   const handleSelectTrait = (index: number) => {
     setSelectingIndex(index);
@@ -177,43 +178,55 @@ const InGameWindow = () => {
               </button>
             </form>
             <h3 className="text-lg font-bold">Select Trait (select up to 4)</h3>
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered w-full"
+              onChange={(e) => {
+                setSearchValue(e.target.value);
+              }}
+              value={searchValue}
+            />
             <div className="grid grid-cols-6 py-4 w-full gap-1">
-              {traits.map((trait) => {
-                const has = settings.players[selectingIndex].traits.some(
-                  (t) => t.name === trait.name
-                );
-                return (
-                  <div
-                    className={`flex flex-col cursor-pointer p-2 justify-center items-center box-border ${
-                      has && "border-red-500 border-2"
-                    }`}
-                    key={trait.name}
-                    onClick={() => {
-                      const newSetting = settings;
-                      if (has) {
-                        // remove if it have
-                        newSetting.players[selectingIndex].traits =
-                          newSetting.players[selectingIndex].traits.filter(
-                            (t) => t.name !== trait.name
-                          );
-                      } else {
-                        // skip if selected more than 3
-                        if (
-                          newSetting.players[selectingIndex].traits.length > 3
-                        ) {
-                          return;
+              {traits
+                .sort((a, b) => b.champions.length - a.champions.length)
+                .filter((v) => v.name.startsWith(searchValue))
+                .map((trait) => {
+                  const has = settings.players[selectingIndex].traits.some(
+                    (t) => t.name === trait.name
+                  );
+                  return (
+                    <div
+                      className={`flex flex-col cursor-pointer p-2 justify-center items-center box-border ${
+                        has && "border-red-500 border-2"
+                      }`}
+                      key={trait.name}
+                      onClick={() => {
+                        const newSetting = settings;
+                        if (has) {
+                          // remove if it have
+                          newSetting.players[selectingIndex].traits =
+                            newSetting.players[selectingIndex].traits.filter(
+                              (t) => t.name !== trait.name
+                            );
+                        } else {
+                          // skip if selected more than 3
+                          if (
+                            newSetting.players[selectingIndex].traits.length > 3
+                          ) {
+                            return;
+                          }
+                          // add if it not have
+                          newSetting.players[selectingIndex].traits.push(trait);
                         }
-                        // add if it not have
-                        newSetting.players[selectingIndex].traits.push(trait);
-                      }
-                      settingsAtom.set({ ...newSetting });
-                    }}
-                  >
-                    <img alt={trait.name} src={getCDragonImage(trait.icon)} />
-                    <div className="text-center">{trait.name}</div>
-                  </div>
-                );
-              })}
+                        settingsAtom.set({ ...newSetting });
+                      }}
+                    >
+                      <img alt={trait.name} src={getCDragonImage(trait.icon)} />
+                      <div className="text-center">{trait.name}</div>
+                    </div>
+                  );
+                })}
             </div>
           </div>
         )}
