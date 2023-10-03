@@ -8,6 +8,7 @@ import { settingsAtom, traits } from "../../core/store/tftStore";
 import { Player } from "../../core/types";
 import { getCDragonImage } from "core/utils";
 import PoolModal from "components/PoolModal/PoolModal";
+import screenshot from "screenshot-desktop";
 
 interface PlayerData {
   index: number;
@@ -176,6 +177,34 @@ const InGameWindow = () => {
         {createPlayerBox(6)}
         <div className="box">
           <PoolModal />
+          <div className="absolute bg-transparent top-0 left-0 w-1/2 h-1/2 flex cursor-pointer">
+            <div className="tooltip w-full h-full" data-tip="Screenshots">
+              <button
+                className="bg-transparent w-full h-full flex cursor-pointer"
+                onClick={() => {
+                  screenshot({ format: "png" })
+                    .then((img) => {
+                      console.log("img", img);
+                    })
+                    .catch((err: Error) => {
+                      console.error("error capturing screenshot", err);
+                    });
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
         {createPlayerBox(2)}
         {createPlayerBox(5)}

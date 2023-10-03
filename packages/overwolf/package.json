@@ -40,6 +40,7 @@
     "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.8",
     "@types/remote-redux-devtools": "^0.5.4",
+    "@types/screenshot-desktop": "^1.12.1",
     "cra-template-overwolf-typescript-redux": "3.0.3",
     "daisyui": "^3.7.7",
     "daisyui-ntsd": "^1.0.4",
@@ -54,9 +55,12 @@
     "remote-redux-devtools": "^0.5.16",
     "remotedev-server": "^0.3.1",
     "tailwindcss": "^3.3.3",
+    "tft-pool-calculator-core": "workspace:^",
     "typescript": "^5.2.2",
-    "web-vitals": "^3.4.0",
-    "tft-pool-calculator-core": "workspace:^"
+    "web-vitals": "^3.4.0"
   },
-  "homepage": "."
+  "homepage": ".",
+  "dependencies": {
+    "screenshot-desktop": "^1.15.0"
+  }
 }

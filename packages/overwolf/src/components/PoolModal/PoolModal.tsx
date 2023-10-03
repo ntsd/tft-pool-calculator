@@ -51,7 +51,7 @@ const PoolModal = () => {
   }, [sortBy, sortDesc, traitsPool]);
 
   return (
-    <div className="absolute bg-transparent top-0 right-0 w-full h-full flex cursor-pointer">
+    <div className="absolute bg-transparent top-0 right-0 w-1/2 h-1/2 flex cursor-pointer">
       <div className="tooltip w-full h-full" data-tip="Show Pool Analytic">
         <button
           className="bg-transparent w-full h-full flex cursor-pointer"
