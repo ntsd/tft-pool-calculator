@@ -1,12 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useStore } from "@nanostores/react";
 import { costToColor } from "core/const";
-import { traitsPoolAtom, championsPoolAtom } from "core/store/tftStore";
-import { TraitPool } from "core/types";
-import { round } from "core/utils";
+import {
+  traitsPoolAtom,
+  championsPoolAtom,
+  settingsAtom,
+} from "core/store/tftStore";
+import { ChampionPool, TraitPool } from "core/types";
+import { getCDragonImage, groupByKey, round } from "core/utils";
 import "./PoolModal.css";
 
 const PoolModal = () => {
+  const [page, setPage] = useState<"traits" | "champions">("traits");
+
+  const settings = useStore(settingsAtom);
   const traitsPool = useStore(traitsPoolAtom);
   const championsPool = useStore(championsPoolAtom);
   const poolModalRef = useRef<HTMLDialogElement>(null);
@@ -50,6 +57,22 @@ const PoolModal = () => {
     );
   }, [sortBy, sortDesc, traitsPool]);
 
+  const [championsByCosts, setChampionsByCosts] = useState<{
+    [k: string]: ChampionPool[];
+  }>({});
+
+  useEffect(() => {
+    setChampionsByCosts(
+      Object.fromEntries(
+        // sort by cost ascending
+        Object.entries(
+          // group champion by cost
+          groupByKey(Object.values(championsPool), (c) => c.cost.toString())
+        ).sort(([keyA, a], [keyB, b]) => keyA.localeCompare(keyB))
+      )
+    );
+  }, [championsPool]);
+
   return (
     <div className="absolute bg-transparent top-0 right-0 w-full h-full flex cursor-pointer">
       <div className="tooltip w-full h-full" data-tip="Show Pool Analytic">
@@ -80,7 +103,54 @@ const PoolModal = () => {
             </button>
           </form>
           <h3 className="font-bold text-lg">Pool Analytic</h3>
-          <div className="py-4">
+          <div className="flex gap-2 items-center justify-center">
+            <span>Cost Filter :</span>
+            <div className="join">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <button
+                  key={i}
+                  className={`btn join-item ${
+                    settings.filterCosts[i] && `btn-secondary`
+                  }`}
+                  onClick={() => {
+                    const newFilterCosts = settings.filterCosts;
+                    newFilterCosts[i] = !newFilterCosts[i];
+                    settingsAtom.set({
+                      ...settings,
+                      filterCosts: newFilterCosts,
+                    });
+                  }}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="py-2">
+            <div className="tabs">
+              <button
+                className={`tab tab-lg tabs-boxed ${
+                  page === "traits" && "tab-active"
+                }`}
+                onClick={() => {
+                  setPage("traits");
+                }}
+              >
+                Traits
+              </button>
+              <button
+                className={`tab tab-lg tabs-boxed ${
+                  page === "champions" && "tab-active"
+                }`}
+                onClick={() => {
+                  setPage("champions");
+                }}
+              >
+                Champions
+              </button>
+            </div>
+          </div>
+          {page === "traits" ? (
             <div className="overflow-x-auto">
               <table className="table">
                 <thead>
@@ -96,7 +166,7 @@ const PoolModal = () => {
                               : "arrow-up arrow-down"
                           }
                           onClick={() => {
-                            if (sortBy == header) {
+                            if (sortBy === header) {
                               setSortDesc(!sortDesc);
                             }
                             setSortBy(header);
@@ -109,46 +179,74 @@ const PoolModal = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedTraitsPool.map((trait) => (
-                    <tr>
-                      <th>{trait.name}</th>
-                      <td className="flex gap-1">
-                        {trait.champions
-                          .map((c) => ({
-                            name: c.name,
-                            cost: championsPool[c.name].cost,
-                            curPool: championsPool[c.name].curPool,
-                            maxPool: championsPool[c.name].maxPool,
-                            percent:
-                              championsPool[c.name].curPool /
-                              championsPool[c.name].maxPool,
-                          }))
-                          .sort((a, b) => a.curPool - b.curPool)
-                          .map((c) => ({
-                            ...c,
-                            text: `${c.name} (${c.curPool}/${c.maxPool}/${round(
-                              c.percent
-                            )})`,
-                          }))
-                          .map((champion) => (
-                            <span
-                              className={`text-${
-                                costToColor[champion.cost]
-                              }-600`}
-                            >
-                              {champion.text}
-                            </span>
-                          ))}
-                      </td>
-                      <td>{trait.curPool}</td>
-                      <td>{trait.maxPool}</td>
-                      <td>{round(trait.curPool / trait.maxPool)}</td>
-                    </tr>
-                  ))}
+                  {sortedTraitsPool
+                    .filter((t) => t.maxPool > 0)
+                    .map((trait) => (
+                      <tr>
+                        <th>{trait.name}</th>
+                        <td className="flex gap-1">
+                          {trait.champions
+                            .filter((c) => championsPool[c.name])
+                            .map((c) => ({
+                              name: c.name,
+                              cost: championsPool[c.name].cost,
+                              curPool: championsPool[c.name].curPool,
+                              maxPool: championsPool[c.name].maxPool,
+                              percent:
+                                championsPool[c.name].curPool /
+                                championsPool[c.name].maxPool,
+                            }))
+                            .sort((a, b) => a.curPool - b.curPool)
+                            .map((c) => ({
+                              ...c,
+                              text: `${c.name} (${c.curPool}/${
+                                c.maxPool
+                              }/${round(c.percent)})`,
+                            }))
+                            .map((champion) => (
+                              <span
+                                className={`text-${
+                                  costToColor[champion.cost]
+                                }-600`}
+                              >
+                                {champion.text}
+                              </span>
+                            ))}
+                        </td>
+                        <td>{trait.curPool}</td>
+                        <td>{trait.maxPool}</td>
+                        <td>{round(trait.curPool / trait.maxPool)}</td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
             </div>
-          </div>
+          ) : (
+            <div className="flex flex-col">
+              {Object.entries(championsByCosts).map(([cost, champions]) => (
+                <div className="flex flex-row">
+                  {champions.map((champion) => (
+                    <div
+                      className={`bg-${
+                        costToColor[champion.cost]
+                      }-600 relative text-white text-xs md:text-md`}
+                    >
+                      <img
+                        alt={champion.name}
+                        src={getCDragonImage(champion.squareIcon)}
+                      />
+                      <div className="text-center">
+                        {`${champion.curPool}/${champion.maxPool}/${round(
+                          champion.curPool / champion.maxPool,
+                          2
+                        )}`}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
