@@ -77,6 +77,7 @@ function handleRoster(jsonStr: string) {
 }
 
 // https://overwolf.github.io/api/live-game-data/supported-games/teamfight-tactics
+// https://overwolf.github.io/api/games/input-tracking
 const InGameWindow = () => {
   const { info, event } = useSelector((state: RootReducer) => state.background);
   const settings = useStore(settingsAtom);
