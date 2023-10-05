@@ -241,6 +241,7 @@ const InGameWindow = () => {
                           }
                           // add if it not have
                           newSetting.players[selectingIndex].traits.push(trait);
+                          setSearchValue("");
                         }
                         settingsAtom.set({ ...newSetting });
                       }}
