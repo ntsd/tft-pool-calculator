@@ -55,8 +55,9 @@ function updateRoster(playerDatas: PlayerData[]) {
 
 function handleRoster(jsonStr: string) {
   const roster = JSON.parse(jsonStr);
+  const setting = settingsAtom.get();
 
-  const players: Array<PlayerData> = [];
+  let players: Array<PlayerData> = [];
 
   for (const name in roster) {
     const playerData: PlayerData = roster[name];
@@ -65,10 +66,18 @@ function handleRoster(jsonStr: string) {
     players.push(playerData);
   }
 
-  players.sort((a, b) => a.index - b.index);
+  players = players.sort((a, b) => a.index - b.index);
 
   if (players.length > 0) {
-    if (settingsAtom.get().players.length > 0) {
+    // check if index and players are the same
+    let isUpdate = players.every((p, i) => {
+      if (!setting.players[i] || p.name !== setting.players[i].name) {
+        return false;
+      }
+      return true;
+    });
+
+    if (isUpdate) {
       updateRoster(players);
     } else {
       setupRoster(players);
