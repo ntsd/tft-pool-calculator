@@ -40,7 +40,7 @@ TRAITS, WHITELIST_CHARS = loadTraits()
 print("TRAITS:", TRAITS)
 print("WHITELIST_CHARS:", WHITELIST_CHARS)
 
-TESSERACT_CONFIG = f"-c tessedit_char_whitelist={WHITELIST_CHARS} --oem 3 --psm 6"  # --oem 3 --psm 6
+TESSERACT_CONFIG = f"-c tessedit_char_whitelist={WHITELIST_CHARS}"  # --oem 3 --psm 6
 
 print("TESSERACT_CONFIG:", TESSERACT_CONFIG)
 
@@ -53,6 +53,8 @@ def ocrTraits(img: cv2.typing.MatLike):
     img = cv2.bitwise_and(img, img, mask=mask)
 
     str = pytesseract.image_to_string(img, config=TESSERACT_CONFIG, output_type=pytesseract.Output.STRING)
+
+    # cv2.imwrite("temp.png", img)
 
     slitStr = str.split()
 
@@ -101,5 +103,5 @@ if __name__ == "__main__":
     webServer.server_close()
     print("Server stopped.")
 
-# img = cv2.imread("./tests/Shotcut_00_23_44_967.png")
+# img = cv2.imread("./tests/TFTSet9_Stage2/['Bastion', 'Invoker'].png")
 # print(ocrTraits(img))
