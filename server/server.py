@@ -40,7 +40,8 @@ TRAITS, WHITELIST_CHARS = loadTraits()
 print("TRAITS:", TRAITS)
 print("WHITELIST_CHARS:", WHITELIST_CHARS)
 
-TESSERACT_CONFIG = f"-c tessedit_char_whitelist={WHITELIST_CHARS}"  # --oem 3 --psm 6
+# https://muthu.co/all-tesseract-ocr-options/
+TESSERACT_CONFIG = f"-c load_system_dawg=0 -c load_freq_dawg=0 -c tessedit_char_whitelist={WHITELIST_CHARS}"  # --oem 3 --psm 6
 
 print("TESSERACT_CONFIG:", TESSERACT_CONFIG)
 
@@ -48,15 +49,19 @@ print("TESSERACT_CONFIG:", TESSERACT_CONFIG)
 def ocrTraits(img: cv2.typing.MatLike):
     # Threshold the BGR image to get only white colors
     mask = cv2.inRange(img, LOWER_WHITE, UPPER_WHITE)
+    
+    # cv2.imwrite("temp.png", img)
 
-    # Bitwise-AND mask and original image
-    img = cv2.bitwise_and(img, img, mask=mask)
+    # mask and change to 1 channel  
+    img = cv2.bitwise_not(mask)
+    
+    # cv2.imwrite("temp2.png", img)
 
     str = pytesseract.image_to_string(img, config=TESSERACT_CONFIG, output_type=pytesseract.Output.STRING)
 
-    # cv2.imwrite("temp.png", img)
-
     slitStr = str.split()
+
+    # print("slitStr", slitStr)
 
     similarTraits = []
     for word in slitStr:
