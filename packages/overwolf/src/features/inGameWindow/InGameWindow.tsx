@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import "./InGame.css";
 import { setPosition } from "utils/setWindowPosition";
 import { useStore } from "@nanostores/react";
-import { settingsAtom, traits } from "../../core/store/tftStore";
-import { Player } from "../../core/types";
+import { settingsAtom, traits, traitsMap } from "../../core/store/tftStore";
+import { Player, Trait } from "../../core/types";
 import { getCDragonImage } from "core/utils";
 import PoolModal from "components/PoolModal/PoolModal";
+
+const windowId = "in_game";
 
 interface PlayerData {
   index: number;
@@ -24,6 +26,7 @@ async function setupRoster(playerDatas: PlayerData[]) {
       id: data.name,
       name: data.name,
       isDead: data.localplayer, // set to dead if it's local player
+      isLocalplayer: data.localplayer,
       traits: [],
     });
   });
@@ -33,7 +36,7 @@ async function setupRoster(playerDatas: PlayerData[]) {
     players: newPlayers,
   });
 
-  setPosition("in_game");
+  setPosition(windowId);
 }
 
 function updateRoster(playerDatas: PlayerData[]) {
@@ -85,6 +88,27 @@ function handleRoster(jsonStr: string) {
   }
 }
 
+async function screenshotRequest() {
+  return new Promise<string[]>((resolve, reject) => {
+    overwolf.web.sendHttpRequest(
+      "http://localhost:23453/screenshot",
+      overwolf.web.enums.HttpRequestMethods.GET,
+      [],
+      "",
+      (result: overwolf.web.SendHttpRequestResult) => {
+        if (result) {
+          if (result.data) {
+            const traitStrArr = JSON.parse(result.data) as string[];
+            resolve(traitStrArr);
+            return;
+          }
+        }
+        reject(new Error("screenshot error:" + result.error));
+      }
+    );
+  });
+}
+
 // https://overwolf.github.io/api/live-game-data/supported-games/teamfight-tactics
 // https://overwolf.github.io/api/games/input-tracking
 const InGameWindow = () => {
@@ -100,6 +124,71 @@ const InGameWindow = () => {
     setSelectingIndex(index);
     selectTraitsModalRef.current?.showModal();
     searchInput.current?.focus();
+  };
+
+  const screenshotAndOCR = async () => {
+    const newSetting = settings;
+    const traitStrArr = await screenshotRequest();
+    newSetting.players[selectingIndex].traits = traitStrArr
+      .slice(0, 3)
+      .map((traitStr) => traitsMap[traitStr]);
+    setSearchValue("");
+    settingsAtom.set({ ...newSetting });
+  };
+
+  const screenshotAndOCRAll = async () => {
+    const newPlayers = settings.players;
+
+    console.log("screenshotAndOCR");
+
+    let localPlayerIndex = 0;
+    newPlayers.forEach((player, index) => {
+      if (player.isLocalplayer) {
+        localPlayerIndex = index;
+      }
+    });
+
+    overwolf.windows.minimize(windowId);
+
+    let currentPlayerIndex = localPlayerIndex;
+    while (true) {
+      currentPlayerIndex += 1;
+      if (currentPlayerIndex >= newPlayers.length) {
+        currentPlayerIndex = 0;
+      }
+      if (currentPlayerIndex === localPlayerIndex) {
+        break;
+      }
+
+      const currentPlayer = newPlayers[currentPlayerIndex];
+      if (currentPlayer.isDead) {
+        continue;
+      }
+
+      await overwolf.utils.sendKeyStroke("D1");
+      await new Promise((resolve) => setTimeout(resolve, 500)); // sleep 0.5 sec
+
+      const traitStrArr = await screenshotRequest();
+
+      console.log(
+        "currentPlayerIndex",
+        currentPlayerIndex,
+        "traitStrArr",
+        traitStrArr
+      );
+      if (traitStrArr.length > 0) {
+        newPlayers[currentPlayerIndex].traits = await traitStrArr
+          .slice(0, 2)
+          .map((traitStr) => traitsMap[traitStr]);
+      }
+    }
+
+    settingsAtom.set({
+      ...settings,
+      players: newPlayers,
+    });
+
+    overwolf.windows.maximize(windowId);
   };
 
   const createPlayerBox = (index: number) => (
@@ -150,11 +239,11 @@ const InGameWindow = () => {
     // handleRoster(
     //   '{"MonterHuhter":{"index":1,"health":0,"xp":7,"localplayer":false,"rank":7},"XExy":{"index":2,"health":22,"xp":7,"localplayer":false,"rank":0},"TemPigmo":{"index":3,"health":30,"xp":9,"localplayer":false,"rank":0},"hotcode":{"index":4,"health":52,"xp":9,"localplayer":true,"rank":0},"Playboy Legend":{"index":5,"health":0,"xp":8,"localplayer":false,"rank":8},"SameZ":{"index":6,"health":30,"xp":7,"localplayer":false,"rank":0},"KraTomBoY":{"index":7,"health":78,"xp":8,"localplayer":false,"rank":0},"Trax":{"index":8,"health":0,"xp":7,"localplayer":false,"rank":6}}'
     // );
-    setPosition("in_game");
+    setPosition(windowId);
   }, []);
 
   useEffect(() => {
-    console.info("[event]", JSON.stringify(event, null, 2));
+    // console.info("[event]", JSON.stringify(event, null, 2));
     if (event.length > 0) {
       event.forEach((ev) => {
         if (ev.name === "match_start") {
@@ -169,7 +258,7 @@ const InGameWindow = () => {
   }, [event]);
 
   useEffect(() => {
-    console.info("[info]", JSON.stringify(info, null, 2));
+    // console.info("[info]", JSON.stringify(info, null, 2));
     const roster = info["roster"];
     if (roster) {
       // @ts-ignore
@@ -186,6 +275,25 @@ const InGameWindow = () => {
         {createPlayerBox(6)}
         <div className="box">
           <PoolModal />
+          <div
+            data-tip="OCR all"
+            className="tooltip absolute bg-transparent top-0 left-0 w-1/2 h-1/2 flex cursor-pointer"
+          >
+            <button
+              className="bg-transparent w-full h-full flex cursor-pointer"
+              onClick={() => {
+                screenshotAndOCRAll();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M6 3a3 3 0 00-3 3v1.5a.75.75 0 001.5 0V6A1.5 1.5 0 016 4.5h1.5a.75.75 0 000-1.5H6zM16.5 3a.75.75 0 000 1.5H18A1.5 1.5 0 0119.5 6v1.5a.75.75 0 001.5 0V6a3 3 0 00-3-3h-1.5zM12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zM4.5 16.5a.75.75 0 00-1.5 0V18a3 3 0 003 3h1.5a.75.75 0 000-1.5H6A1.5 1.5 0 014.5 18v-1.5zM21 16.5a.75.75 0 00-1.5 0V18a1.5 1.5 0 01-1.5 1.5h-1.5a.75.75 0 000 1.5H18a3 3 0 003-3v-1.5z" />
+              </svg>
+            </button>
+          </div>
         </div>
         {createPlayerBox(2)}
         {createPlayerBox(5)}
@@ -217,6 +325,14 @@ const InGameWindow = () => {
               value={searchValue}
               ref={searchInput}
             />
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                screenshotAndOCR();
+              }}
+            >
+              OCR
+            </button>
             <div className="grid grid-cols-6 py-4 w-full gap-1">
               {traits
                 .sort((a, b) => b.champions.length - a.champions.length)

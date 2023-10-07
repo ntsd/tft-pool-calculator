@@ -1,21 +1,14 @@
 import { atom, type WritableAtom } from "nanostores";
 import { getTraits } from "../api/api";
-import type {
-  ChampionPool,
-  Player,
-  Settings,
-  Trait,
-  TraitPool,
-} from "../types";
+import type { ChampionPool, Settings, Trait, TraitPool } from "../types";
 import { getChampions } from "../api/api";
 import { filterTraits, poolSize } from "../const";
-import { uuidv4 } from "../utils";
 
 const championsPerPlayer = 3;
 
 const rawTraits = await getTraits();
 
-const traitsMap: { [name: string]: Trait } = {};
+export const traitsMap: { [name: string]: Trait } = {};
 rawTraits.forEach((trait) => {
   traitsMap[trait.name] = trait;
 });
@@ -127,9 +120,11 @@ settingsAtom.subscribe((settings) => {
     // estimate champion set of this player
     let championsSet = new Set<string>();
     player.traits.forEach((trait) => {
-      newTraitsPool[trait.name].champions.forEach((champion) => {
-        championsSet.add(champion.name);
-      });
+      if (newTraitsPool[trait.name]) {
+        newTraitsPool[trait.name].champions.forEach((champion) => {
+          championsSet.add(champion.name);
+        });
+      }
     });
 
     // reduce current pool by champions set of this player
