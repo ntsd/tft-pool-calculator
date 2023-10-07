@@ -8,6 +8,7 @@ import { settingsAtom, traits, traitsMap } from "../../core/store/tftStore";
 import { Player, Trait } from "../../core/types";
 import { getCDragonImage } from "core/utils";
 import PoolModal from "components/PoolModal/PoolModal";
+import { filterTraits } from "core/const";
 
 const windowId = "in_game";
 
@@ -130,10 +131,12 @@ const InGameWindow = () => {
     const newSetting = settings;
     const traitStrArr = await screenshotRequest();
     newSetting.players[selectingIndex].traits = traitStrArr
-      .slice(0, 3)
+      .filter((t) => !filterTraits.includes(t))
+      .slice(0, 2)
       .map((traitStr) => traitsMap[traitStr]);
     setSearchValue("");
     settingsAtom.set({ ...newSetting });
+    selectTraitsModalRef.current?.close();
   };
 
   const screenshotAndOCRAll = async () => {
@@ -149,6 +152,8 @@ const InGameWindow = () => {
     });
 
     overwolf.windows.minimize(windowId);
+    // https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0
+    await overwolf.utils.sendKeyStroke("Space");
 
     let currentPlayerIndex = localPlayerIndex;
     while (true) {
@@ -165,8 +170,9 @@ const InGameWindow = () => {
         continue;
       }
 
+      await new Promise((resolve) => setTimeout(resolve, 300)); // sleep 0.3 sec
       await overwolf.utils.sendKeyStroke("D1");
-      await new Promise((resolve) => setTimeout(resolve, 500)); // sleep 0.5 sec
+      await new Promise((resolve) => setTimeout(resolve, 300)); // sleep 0.3 sec
 
       const traitStrArr = await screenshotRequest();
 
@@ -178,6 +184,7 @@ const InGameWindow = () => {
       );
       if (traitStrArr.length > 0) {
         newPlayers[currentPlayerIndex].traits = await traitStrArr
+          .filter((t) => !filterTraits.includes(t))
           .slice(0, 2)
           .map((traitStr) => traitsMap[traitStr]);
       }
