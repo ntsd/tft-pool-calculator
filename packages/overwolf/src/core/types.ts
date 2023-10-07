@@ -60,6 +60,7 @@ export interface Player {
   name: string;
   traits: Trait[];
   isDead: boolean;
+  isLocalplayer: boolean;
 }
 
 export interface Settings {

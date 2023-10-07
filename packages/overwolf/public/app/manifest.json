@@ -13,9 +13,16 @@
     "description": "Estimate champions pool probability to find the best optimize traits in the TFT lobby"
   },
   "permissions": [
-    "GameInfo"
+    "GameInfo",
+    "GameControl",
+    "Web"
   ],
   "data": {
+    "externally_connectable": {
+      "matches": [
+        "http://localhost:23453"
+      ]
+    },
     "game_targeting": {
       "type": "dedicated",
       "game_ids": [

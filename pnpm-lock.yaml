@@ -32,6 +32,9 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^1.9.6
         version: 1.9.6(react-redux@8.1.2)(react@18.2.0)
+      '@types/google-protobuf':
+        specifier: ^3.15.7
+        version: 3.15.7
       '@types/react':
         specifier: ^18.2.23
         version: 18.2.23
@@ -50,6 +53,12 @@ importers:
       daisyui-ntsd:
         specifier: ^1.0.4
         version: 1.0.4
+      google-protobuf:
+        specifier: ^3.21.2
+        version: 3.21.2
+      grpc-web:
+        specifier: ^1.4.2
+        version: 1.4.2
       i18next:
         specifier: ^23.5.1
         version: 23.5.1
@@ -2612,7 +2621,7 @@ packages:
     resolution: {integrity: sha512-EXQg9N4MdI4eJQz/AZLIx3hxQ6BuBmV4Q55bCd5YCSgEOAW7tGTsIZxpRXxvxLXzflNvHTBvfrDNY38TlSVBkQ==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     peerDependencies:
-      nanostores: ^0.9.0
+      nanostores: ^0.9.3
       react: '>=18.0.0'
     dependencies:
       nanostores: 0.9.3
@@ -3058,6 +3067,10 @@ packages:
       '@types/express-serve-static-core': 4.17.37
       '@types/qs': 6.9.8
       '@types/serve-static': 1.15.3
+    dev: true
+
+  /@types/google-protobuf@3.15.7:
+    resolution: {integrity: sha512-pIEMnb04J60c5eExVLUY/R4eWT5QEQ5cC792JOSfDI3kLjaKC4TjdgMp3xIrN1vxbi2Zk8LcscTm0VaNrIdniA==}
     dev: true
 
   /@types/graceful-fs@4.1.7:
@@ -7189,6 +7202,10 @@ packages:
       slash: 3.0.0
     dev: true
 
+  /google-protobuf@3.21.2:
+    resolution: {integrity: sha512-3MSOYFO5U9mPGikIYCzK0SaThypfGgS6bHqrUGXG3DPHCrb+txNqeEcns1W0lkGfk0rCyNXm7xB9rMxnCiZOoA==}
+    dev: true
+
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
@@ -7256,6 +7273,10 @@ packages:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
+    dev: true
+
+  /grpc-web@1.4.2:
+    resolution: {integrity: sha512-gUxWq42l5ldaRplcKb4Pw5O4XBONWZgz3vxIIXnfIeJj8Jc3wYiq2O4c9xzx/NGbbPEej4rhI62C9eTENwLGNw==}
     dev: true
 
   /gzip-size@6.0.0:
