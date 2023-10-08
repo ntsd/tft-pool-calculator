@@ -17,7 +17,7 @@ SERVER_PORT = 23453
 W, H = pyautogui.size()
 
 # Define range of white color in BGR
-LOWER_WHITE = np.array([150, 150, 150])
+LOWER_WHITE = np.array([200, 200, 200])
 UPPER_WHITE = np.array([255, 255, 255])
 
 
@@ -50,12 +50,12 @@ def ocrTraits(img: cv2.typing.MatLike):
     # Threshold the BGR image to get only white colors
     mask = cv2.inRange(img, LOWER_WHITE, UPPER_WHITE)
     
-    # cv2.imwrite("temp.png", img)
+    cv2.imwrite("temp.png", img)
 
     # mask and change to 1 channel  
     img = cv2.bitwise_not(mask)
     
-    # cv2.imwrite("temp2.png", img)
+    cv2.imwrite("temp2.png", img)
 
     str = pytesseract.image_to_string(img, config=TESSERACT_CONFIG, output_type=pytesseract.Output.STRING)
 
@@ -96,17 +96,17 @@ class TFTPoolServer(BaseHTTPRequestHandler):
                 return
 
 
-if __name__ == "__main__":
-    webServer = HTTPServer((HOSTNAME, SERVER_PORT), TFTPoolServer)
-    print("Server started http://%s:%s" % (HOSTNAME, SERVER_PORT))
+# if __name__ == "__main__":
+#     webServer = HTTPServer((HOSTNAME, SERVER_PORT), TFTPoolServer)
+#     print("Server started http://%s:%s" % (HOSTNAME, SERVER_PORT))
 
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
+#     try:
+#         webServer.serve_forever()
+#     except KeyboardInterrupt:
+#         pass
 
-    webServer.server_close()
-    print("Server stopped.")
+#     webServer.server_close()
+#     print("Server stopped.")
 
-# img = cv2.imread("./tests/TFTSet9_Stage2/['Bastion', 'Invoker'].png")
-# print(ocrTraits(img))
+img = cv2.imread("./tests/TFTSet9_Stage2/['Challenger', 'Juggernaut'].png")
+print(ocrTraits(img))
