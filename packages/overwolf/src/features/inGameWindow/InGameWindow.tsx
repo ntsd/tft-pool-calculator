@@ -170,9 +170,9 @@ const InGameWindow = () => {
         continue;
       }
 
-      await new Promise((resolve) => setTimeout(resolve, 300)); // sleep 0.3 sec
+      await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
       await overwolf.utils.sendKeyStroke("D1");
-      await new Promise((resolve) => setTimeout(resolve, 300)); // sleep 0.3 sec
+      await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
 
       const traitStrArr = await screenshotRequest();
 
