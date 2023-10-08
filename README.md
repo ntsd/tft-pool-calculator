@@ -2,6 +2,10 @@
 
 Estimate champions pool probability and optimize traits in the TFT lobby
 
+## Introduction
+
+
+
 ## Data
 
 ### Community Dragon Data
