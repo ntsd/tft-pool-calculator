@@ -5,10 +5,13 @@ import "./InGame.css";
 import { setPosition } from "utils/setWindowPosition";
 import { useStore } from "@nanostores/react";
 import { settingsAtom, traits, traitsMap } from "../../core/store/tftStore";
-import { Player, Trait } from "../../core/types";
+import { Player } from "../../core/types";
 import { getCDragonImage } from "core/utils";
 import PoolModal from "components/PoolModal/PoolModal";
 import { filterTraits } from "core/const";
+import { createWorker } from "tesseract.js";
+import { Image } from "image-js";
+import { stringSimilarity } from "string-similarity-js";
 
 const windowId = "in_game";
 
@@ -89,22 +92,91 @@ function handleRoster(jsonStr: string) {
   }
 }
 
-async function screenshotRequest() {
+const traitArray = Object.keys(traitsMap);
+
+function getCharWhiteList() {
+  let charWhiteListMap: { [name: string]: boolean } = {};
+  traitArray.forEach((traitName) => {
+    for (var i = 0; i < traitName.length; i++) {
+      var char = traitName.charAt(i);
+      charWhiteListMap[char] = true;
+    }
+  });
+
+  return Object.keys(charWhiteListMap)
+    .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+    .join("");
+}
+
+function getCloseTrait(text: string) {
+  for (let i = 0; i < traitArray.length; i++) {
+    const similar = stringSimilarity(traitArray[i], text, 1);
+    if (similar > 0.75) {
+      return traitArray[i];
+    }
+  }
+  return "";
+}
+
+console.log("getCharWhiteList", getCharWhiteList());
+
+const ocrWorker = await createWorker("eng", undefined, {
+  logger: (m) => {
+    // console.log("tesseract", m)
+  },
+});
+await ocrWorker.setParameters({
+  tessedit_char_whitelist: getCharWhiteList(),
+});
+
+async function takeScreenShotOCR() {
   return new Promise<string[]>((resolve, reject) => {
-    overwolf.web.sendHttpRequest(
-      "http://localhost:23453/screenshot",
-      overwolf.web.enums.HttpRequestMethods.GET,
-      [],
-      "",
-      (result: overwolf.web.SendHttpRequestResult) => {
-        if (result) {
-          if (result.data) {
-            const traitStrArr = JSON.parse(result.data) as string[];
-            resolve(traitStrArr);
-            return;
-          }
+    overwolf.media.getScreenshotUrl(
+      {
+        roundAwayFromZero: true,
+        crop: {
+          x: 0,
+          y: -0.25,
+          width: -0.2,
+          height: -0.25,
+        },
+      },
+      (result) => {
+        if (!result || result.error) {
+          reject(new Error(result.error));
+          return;
         }
-        reject(new Error("screenshot error:" + result.error));
+        if (!result.url) {
+          reject(new Error("error to get screenshot url"));
+          return;
+        }
+        Image.load(result.url).then((image) => {
+          let grey = image.grey({
+            algorithm: (red: number, green: number, blue: number) => {
+              if (red > 200 && green > 200 && blue > 200) {
+                return 0;
+              }
+              return 255;
+            },
+          });
+          grey.toBlob().then((blob) => {
+            ocrWorker.recognize(blob, {}).then((result) => {
+              // console.log("result", result.data);
+              let traits: string[] = [];
+              result.data.text
+                .trim()
+                .split(/\s+/)
+                .forEach((word) => {
+                  const closestTrait = getCloseTrait(word);
+                  if (closestTrait !== "") {
+                    traits.push(closestTrait);
+                  }
+                });
+              // console.log("traits", traits);
+              resolve(traits);
+            });
+          });
+        });
       }
     );
   });
@@ -129,7 +201,7 @@ const InGameWindow = () => {
 
   const screenshotAndOCR = async () => {
     const newSetting = settings;
-    const traitStrArr = await screenshotRequest();
+    const traitStrArr = await takeScreenShotOCR();
     newSetting.players[selectingIndex].traits = traitStrArr
       .filter((t) => !filterTraits.includes(t))
       .slice(0, 2)
@@ -142,8 +214,6 @@ const InGameWindow = () => {
   const screenshotAndOCRAll = async () => {
     const newPlayers = settings.players;
 
-    console.log("screenshotAndOCR");
-
     let localPlayerIndex = 0;
     newPlayers.forEach((player, index) => {
       if (player.isLocalplayer) {
@@ -152,8 +222,10 @@ const InGameWindow = () => {
     });
 
     overwolf.windows.minimize(windowId);
+    await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
     // https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0
     await overwolf.utils.sendKeyStroke("Space");
+    await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
 
     let currentPlayerIndex = localPlayerIndex;
     while (true) {
@@ -170,11 +242,10 @@ const InGameWindow = () => {
         continue;
       }
 
-      await new Promise((resolve) => setTimeout(resolve, 300)); // sleep 0.3 sec
       await overwolf.utils.sendKeyStroke("D1");
-      await new Promise((resolve) => setTimeout(resolve, 300)); // sleep 0.3 sec
+      await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
 
-      const traitStrArr = await screenshotRequest();
+      const traitStrArr = await takeScreenShotOCR();
 
       console.log(
         "currentPlayerIndex",

@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@nanostores/react": "^0.7.1",
-    "@overwolf/types": "^3.12.0",
+    "@overwolf/types": "^3.23.9",
     "@reduxjs/toolkit": "^1.9.6",
     "@types/google-protobuf": "^3.15.7",
     "@types/react": "^18.2.23",
@@ -48,6 +48,7 @@
     "google-protobuf": "^3.21.2",
     "grpc-web": "^1.4.2",
     "i18next": "^23.5.1",
+    "image-js": "^0.35.4",
     "nanostores": "^0.9.3",
     "overwolf-hooks": "^3.0.6",
     "react": "^18.2.0",
@@ -57,7 +58,9 @@
     "react-scripts": "5.0.1",
     "remote-redux-devtools": "^0.5.16",
     "remotedev-server": "^0.3.1",
+    "string-similarity-js": "^2.1.4",
     "tailwindcss": "^3.3.3",
+    "tesseract.js": "^5.0.2",
     "tft-pool-calculator-core": "workspace:^",
     "typescript": "^5.2.2",
     "web-vitals": "^3.4.0"
