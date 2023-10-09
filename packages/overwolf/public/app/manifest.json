@@ -15,7 +15,8 @@
   "permissions": [
     "GameInfo",
     "GameControl",
-    "Web"
+    "Web",
+    "Media"
   ],
   "data": {
     "externally_connectable": {
