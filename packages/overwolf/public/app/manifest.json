@@ -15,7 +15,6 @@
   "permissions": [
     "GameInfo",
     "GameControl",
-    "Web",
     "Media"
   ],
   "data": {

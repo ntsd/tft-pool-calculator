@@ -146,7 +146,7 @@ const overwolfMock: typeof overwolf = {
           success: true,
           activity: {
             aTime: 0,
-            apm: false,
+            apm: 0,
             iTime: 0,
             keyboard: {
               keys: [],
@@ -167,7 +167,7 @@ const overwolfMock: typeof overwolf = {
           success: true,
           activity: {
             aTime: 0,
-            apm: false,
+            apm: 0,
             iTime: 0,
             keyboard: {
               keys: [],
@@ -188,7 +188,7 @@ const overwolfMock: typeof overwolf = {
           success: true,
           activity: {
             aTime: 0,
-            apm: false,
+            apm: 0,
             iTime: 0,
             keyboard: {
               keys: [],
