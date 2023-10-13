@@ -125,6 +125,11 @@ const ocrWorker = await createWorker("eng", undefined, {
     // console.log("tesseract", m)
   },
 });
+await ocrWorker.reinitialize("eng", undefined, {
+  load_system_dawg: "0",
+	load_freq_dawg: "0",
+	load_number_dawg: "0",
+});
 await ocrWorker.setParameters({
   tessedit_char_whitelist: getCharWhiteList(),
 });
