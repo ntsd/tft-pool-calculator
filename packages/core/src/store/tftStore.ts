@@ -1,8 +1,8 @@
 import { atom, type WritableAtom } from "nanostores";
-import { getTraits } from "../api/api";
-import type { ChampionPool, Settings, Trait, TraitPool } from "../types";
-import { getChampions } from "../api/api";
-import { filterTraits, poolSize } from "../const";
+import { getTraits } from "../api/api.js";
+import type { ChampionPool, Settings, Trait, TraitPool } from "../types.js";
+import { getChampions } from "../api/api.js";
+import { filterTraits, poolSize } from "../const.js";
 
 const championsPerPlayer = 3;
 
