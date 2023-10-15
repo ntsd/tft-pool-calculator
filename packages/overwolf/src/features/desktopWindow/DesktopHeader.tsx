@@ -3,7 +3,7 @@ import { WINDOW_NAMES, OVERWOLF_HOOKS_OPTIONS } from "app/constants";
 import { useWindow, useDrag } from "overwolf-hooks";
 import { SVGComponent } from "./DesktopHeaderSVG";
 import style from "./DesktopHeader.module.css";
-import { githubLink } from "core/const";
+import { githubLink } from "tft-pool-calculator-core";
 
 const { DESKTOP, BACKGROUND } = WINDOW_NAMES;
 
@@ -37,15 +37,11 @@ export const DesktopHeader = () => {
         onMouseDown={onDragStart}
         onMouseMove={onMouseMove}
       >
-        <h3 className={style["header-title"]}>
-          TFT Pool Calculator
-        </h3>
+        <h3 className={style["header-title"]}>TFT Pool Calculator</h3>
         <div className={style["window-controls-group"]}>
           <button
             className={`${style.icon} ${style["window-control"]} ${style["window-control-social"]} ${style.discord} `}
-            onClick={() =>
-              overwolf.utils.openUrlInDefaultBrowser(githubLink)
-            }
+            onClick={() => overwolf.utils.openUrlInDefaultBrowser(githubLink)}
           >
             <svg>
               <use xlinkHref="#window-control_github" />
