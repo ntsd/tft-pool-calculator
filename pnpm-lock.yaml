@@ -20,6 +20,10 @@ importers:
       nanostores:
         specifier: ^0.9.3
         version: 0.9.3
+    devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
 
   packages/overwolf:
     devDependencies:

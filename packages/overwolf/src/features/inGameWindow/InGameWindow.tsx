@@ -4,16 +4,19 @@ import { useSelector } from "react-redux";
 import "./InGame.css";
 import { setPosition } from "utils/setWindowPosition";
 import { useStore } from "@nanostores/react";
-import { settingsAtom, traits, traitsMap } from "../../core/store/tftStore";
-import { Player } from "../../core/types";
-import { getCDragonImage } from "core/utils";
+import {
+  settingsAtom,
+  traits,
+  traitsMap,
+  Player,
+  getCDragonImage,
+  filterTraits,
+} from "tft-pool-calculator-core";
 import PoolModal from "components/PoolModal/PoolModal";
-import { filterTraits } from "core/const";
 import { createWorker } from "tesseract.js";
 import { Image } from "image-js";
 import { stringSimilarity } from "string-similarity-js";
-
-const windowId = "in_game";
+import { WINDOW_NAMES } from "app/constants";
 
 interface PlayerData {
   index: number;
@@ -40,7 +43,7 @@ async function setupRoster(playerDatas: PlayerData[]) {
     players: newPlayers,
   });
 
-  setPosition(windowId);
+  setPosition(WINDOW_NAMES.INGAME);
 }
 
 function updateRoster(playerDatas: PlayerData[]) {
@@ -127,8 +130,8 @@ const ocrWorker = await createWorker("eng", undefined, {
 });
 await ocrWorker.reinitialize("eng", undefined, {
   load_system_dawg: "0",
-	load_freq_dawg: "0",
-	load_number_dawg: "0",
+  load_freq_dawg: "0",
+  load_number_dawg: "0",
 });
 await ocrWorker.setParameters({
   tessedit_char_whitelist: getCharWhiteList(),
@@ -226,7 +229,7 @@ const InGameWindow = () => {
       }
     });
 
-    overwolf.windows.minimize(windowId);
+    overwolf.windows.minimize(WINDOW_NAMES.INGAME);
     await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
     // https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0
     await overwolf.utils.sendKeyStroke("Space");
@@ -271,7 +274,7 @@ const InGameWindow = () => {
       players: newPlayers,
     });
 
-    overwolf.windows.maximize(windowId);
+    overwolf.windows.maximize(WINDOW_NAMES.INGAME);
   };
 
   const createPlayerBox = (index: number) => (
@@ -322,7 +325,7 @@ const InGameWindow = () => {
     // handleRoster(
     //   '{"MonterHuhter":{"index":1,"health":0,"xp":7,"localplayer":false,"rank":7},"XExy":{"index":2,"health":22,"xp":7,"localplayer":false,"rank":0},"TemPigmo":{"index":3,"health":30,"xp":9,"localplayer":false,"rank":0},"hotcode":{"index":4,"health":52,"xp":9,"localplayer":true,"rank":0},"Playboy Legend":{"index":5,"health":0,"xp":8,"localplayer":false,"rank":8},"SameZ":{"index":6,"health":30,"xp":7,"localplayer":false,"rank":0},"KraTomBoY":{"index":7,"health":78,"xp":8,"localplayer":false,"rank":0},"Trax":{"index":8,"health":0,"xp":7,"localplayer":false,"rank":6}}'
     // );
-    setPosition(windowId);
+    setPosition(WINDOW_NAMES.INGAME);
   }, []);
 
   useEffect(() => {

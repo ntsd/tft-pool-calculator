@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useStore } from "@nanostores/react";
-import { costToColor } from "core/const";
 import {
+  costToColor,
   traitsPoolAtom,
   championsPoolAtom,
   settingsAtom,
-} from "core/store/tftStore";
-import { ChampionPool, TraitPool } from "core/types";
-import { getCDragonImage, groupByKey, round } from "core/utils";
+  ChampionPool,
+  TraitPool,
+  getCDragonImage,
+  groupByKey,
+  round,
+} from "tft-pool-calculator-core";
 import "./PoolModal.css";
 
 const PoolModal = () => {
