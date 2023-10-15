@@ -65,7 +65,7 @@ export const traits = Object.values(initTraitsPool);
 
 export const settingsAtom: WritableAtom<Settings> = atom<Settings>({
   players: [],
-  filterCosts: [false, true, true, true, true],
+  filterCosts: [true, true, true, true, true],
 });
 
 export const championsPoolAtom: WritableAtom<{ [name: string]: ChampionPool }> =
