@@ -280,7 +280,7 @@
                 "style": 4,
                 "variables": {
                     "BleedDuration": 2.5,
-                    "BleedPct": 0.6000000238418579,
+                    "BleedPct": 0.550000011920929,
                     "DamageReduction": 100.0,
                     "HealthThreshold": 0.5,
                     "HexRange": 4.0,
@@ -362,7 +362,7 @@
                 "variables": {
                     "SelfBonusMana": 15.0,
                     "TeamAP": "null",
-                    "TeamMana": 15.0,
+                    "TeamMana": 20.0,
                     "TickRate": 3.0
                 }
             },
@@ -505,7 +505,7 @@
                 "minUnits": 4,
                 "style": 3,
                 "variables": {
-                    "AscensionStrengthBoost": 0.20000000298023224,
+                    "AscensionStrengthBoost": 0.30000001192092896,
                     "BonusASPercent": 0.30000001192092896,
                     "BonusHealthPercent": 0.20000000298023224,
                     "HealthRegen": 0.05000000074505806,
@@ -519,7 +519,7 @@
                 "minUnits": 6,
                 "style": 4,
                 "variables": {
-                    "AscensionStrengthBoost": 0.5,
+                    "AscensionStrengthBoost": 0.6000000238418579,
                     "BonusASPercent": 0.30000001192092896,
                     "BonusHealthPercent": 0.20000000298023224,
                     "HealthRegen": 0.05000000074505806,
@@ -533,7 +533,7 @@
                 "minUnits": 9,
                 "style": 5,
                 "variables": {
-                    "AscensionStrengthBoost": 0.8999999761581421,
+                    "AscensionStrengthBoost": 1.1100000143051147,
                     "BonusASPercent": 0.30000001192092896,
                     "BonusHealthPercent": 0.20000000298023224,
                     "HealthRegen": 0.05000000074505806,
@@ -575,9 +575,9 @@
                 "minUnits": 4,
                 "style": 4,
                 "variables": {
-                    "BonusAP": 35.0,
+                    "BonusAP": 40.0,
                     "ShieldDuration": 15.0,
-                    "ShieldHP": 575.0
+                    "ShieldHP": 600.0
                 }
             },
             {
@@ -585,9 +585,9 @@
                 "minUnits": 5,
                 "style": 4,
                 "variables": {
-                    "BonusAP": 55.0,
+                    "BonusAP": 60.0,
                     "ShieldDuration": 15.0,
-                    "ShieldHP": 850.0
+                    "ShieldHP": 900.0
                 }
             }
         ],
@@ -638,15 +638,26 @@
     },
     {
         "apiName": "Set9_Multicaster",
-        "desc": "Multicasters cast their Ability multiple times. Bonus casts have @DamageReduction*100@% reduced effectiveness.<br><br><row>(@MinUnits@) @BonusCasts@ extra cast</row><br><row>(@MinUnits@) @BonusCasts@ extra casts</row>",
+        "desc": "Multicasters cast their Ability 1 additional time. Bonus casts have reduced effectiveness.<br><br><row>(@MinUnits@) @DamageReduction*100@% reduction</row><br><row>(@MinUnits@) @DamageReduction*100@% reduction</row><br><row>(@MinUnits@) @DamageReduction*100@% reduction. Attacks grant @ManaPerAuto@ bonus Mana.</row>",
         "effects": [
             {
-                "maxUnits": 3,
+                "maxUnits": 2,
                 "minUnits": 2,
                 "style": 1,
                 "variables": {
                     "BonusCasts": 1.0,
-                    "DamageReduction": 0.550000011920929
+                    "DamageReduction": 0.550000011920929,
+                    "{e343cd52}": "null"
+                }
+            },
+            {
+                "maxUnits": 3,
+                "minUnits": 3,
+                "style": 3,
+                "variables": {
+                    "BonusCasts": 1.0,
+                    "DamageReduction": 0.30000001192092896,
+                    "{e343cd52}": "null"
                 }
             },
             {
@@ -654,8 +665,9 @@
                 "minUnits": 4,
                 "style": 4,
                 "variables": {
-                    "BonusCasts": 2.0,
-                    "DamageReduction": 0.550000011920929
+                    "BonusCasts": 1.0,
+                    "DamageReduction": 0.20000000298023224,
+                    "{e343cd52}": 5.0
                 }
             }
         ],
@@ -918,8 +930,8 @@
                 "style": 3,
                 "variables": {
                     "BarrageInterval": 1.5,
-                    "Damage": 150.0,
-                    "DamagePercent": 55.0,
+                    "Damage": 170.0,
+                    "DamagePercent": 60.0,
                     "SplashPercent": "null",
                     "{2aeb6df5}": 2.0
                 }
@@ -942,7 +954,7 @@
                 "style": 5,
                 "variables": {
                     "BarrageInterval": 1.5,
-                    "Damage": 800.0,
+                    "Damage": 999.0,
                     "DamagePercent": 135.0,
                     "SplashPercent": 50.0,
                     "{2aeb6df5}": 4.0
@@ -1060,7 +1072,7 @@
                 "minUnits": 6,
                 "style": 4,
                 "variables": {
-                    "BaseCritChance": 75.0,
+                    "BaseCritChance": 55.0,
                     "CritDmg": 55.0
                 }
             }
@@ -1205,7 +1217,7 @@
                 "minUnits": 3,
                 "style": 1,
                 "variables": {
-                    "EmblemBonus": 33.0,
+                    "EmblemBonus": 25.0,
                     "Mana": 20.0,
                     "NumberOfSpirits": 1.0,
                     "SpiritDuration": 4.0,
@@ -1214,7 +1226,7 @@
                     "{1b8cd16a}": 25.0,
                     "{27b17444}": 25.0,
                     "{3fc62f6f}": 2.0,
-                    "{4df03474}": 200.0,
+                    "{4df03474}": 180.0,
                     "{53912082}": 1.0,
                     "{7d34708f}": 5.0,
                     "{b9a6ee1b}": 15.0,
@@ -1228,16 +1240,16 @@
                 "minUnits": 6,
                 "style": 4,
                 "variables": {
-                    "EmblemBonus": 66.0,
+                    "EmblemBonus": 50.0,
                     "Mana": 20.0,
                     "NumberOfSpirits": 2.0,
                     "SpiritDuration": 4.0,
                     "TooltipBonus": 2.0,
                     "{18bfc1ac}": 16.0,
-                    "{1b8cd16a}": 40.0,
+                    "{1b8cd16a}": 50.0,
                     "{27b17444}": 50.0,
                     "{3fc62f6f}": 2.0,
-                    "{4df03474}": 400.0,
+                    "{4df03474}": 360.0,
                     "{53912082}": 1.0,
                     "{7d34708f}": 10.0,
                     "{b9a6ee1b}": 30.0,
@@ -1251,16 +1263,16 @@
                 "minUnits": 9,
                 "style": 5,
                 "variables": {
-                    "EmblemBonus": 125.4000015258789,
+                    "EmblemBonus": 95.0,
                     "Mana": 20.0,
                     "NumberOfSpirits": 4.0,
                     "SpiritDuration": 4.0,
                     "TooltipBonus": 3.799999952316284,
                     "{18bfc1ac}": 34.20000076293945,
-                    "{1b8cd16a}": 76.0,
+                    "{1b8cd16a}": 95.0,
                     "{27b17444}": 95.0,
                     "{3fc62f6f}": 2.0,
-                    "{4df03474}": 760.0,
+                    "{4df03474}": 684.0,
                     "{53912082}": 1.0,
                     "{7d34708f}": 19.0,
                     "{b9a6ee1b}": 57.0,

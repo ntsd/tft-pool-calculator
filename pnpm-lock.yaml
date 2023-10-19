@@ -2634,7 +2634,7 @@ packages:
     resolution: {integrity: sha512-EXQg9N4MdI4eJQz/AZLIx3hxQ6BuBmV4Q55bCd5YCSgEOAW7tGTsIZxpRXxvxLXzflNvHTBvfrDNY38TlSVBkQ==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     peerDependencies:
-      nanostores: ^0.9.3
+      nanostores: ^0.9.0
       react: '>=18.0.0'
     dependencies:
       nanostores: 0.9.3

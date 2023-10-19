@@ -1,9 +1,12 @@
 import requests
 import json 
 
+print("loading communitydragon data")
+
 setMutator = "TFTSet9_Stage2"
 
 res = requests.get('https://raw.communitydragon.org/latest/cdragon/tft/en_us.json')
+
 response = json.loads(res.text)
 
 for setData in response["setData"]:
@@ -17,12 +20,8 @@ for setData in response["setData"]:
                 champions.append(champion)
 
 
-with open("./packages/overwolf/public/data/" + setMutator + "/traits.json", "w") as outfile:
-    outfile.write(json.dumps(traits, indent=4))
-with open("./packages/web/public/data/" + setMutator + "/traits.json", "w") as outfile:
+with open("./packages/core/src/data/" + setMutator + "/traits.json", "w") as outfile:
     outfile.write(json.dumps(traits, indent=4))
 
-with open("./packages/overwolf/public/data/" + setMutator + "/champions.json", "w") as outfile:
-    outfile.write(json.dumps(champions, indent=4))
-with open("./packages/web/public/data/" + setMutator + "/champions.json", "w") as outfile:
+with open("./packages/core/src/data/" + setMutator + "/champions.json", "w") as outfile:
     outfile.write(json.dumps(champions, indent=4))
