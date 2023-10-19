@@ -3,6 +3,8 @@
 //@see https://overwolf.github.io/api/live-game-data/supported-launchers/league-of-legends
 export const REQUIRED_FEATURES = [
   'game_flow',
+  'roster',
+  'match_info',
 ];
 
 // register gep events
