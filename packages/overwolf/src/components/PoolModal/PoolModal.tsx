@@ -7,7 +7,7 @@ import {
   settingsAtom,
   ChampionPool,
   TraitPool,
-  getCDragonImage,
+  getCDragonImageRelativePath,
   groupByKey,
   round,
 } from "tft-pool-calculator-core";
@@ -236,7 +236,7 @@ const PoolModal = () => {
                     >
                       <img
                         alt={champion.name}
-                        src={getCDragonImage(champion.squareIcon)}
+                        src={getCDragonImageRelativePath(champion.tileIcon)}
                       />
                       <div className="text-center">
                         {`${champion.curPool}/${champion.maxPool}/${round(

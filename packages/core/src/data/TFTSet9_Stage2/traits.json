@@ -656,7 +656,7 @@
                 "style": 3,
                 "variables": {
                     "BonusCasts": 1.0,
-                    "DamageReduction": 0.30000001192092896,
+                    "DamageReduction": 0.3499999940395355,
                     "{e343cd52}": "null"
                 }
             },
@@ -666,7 +666,7 @@
                 "style": 4,
                 "variables": {
                     "BonusCasts": 1.0,
-                    "DamageReduction": 0.20000000298023224,
+                    "DamageReduction": 0.3499999940395355,
                     "{e343cd52}": 5.0
                 }
             }
@@ -1155,7 +1155,7 @@
                 "minUnits": 4,
                 "style": 3,
                 "variables": {
-                    "BonusAS": 60.0,
+                    "BonusAS": 65.0,
                     "BurstDuration": 2.5,
                     "IncreasePct": 0.5
                 }
@@ -1165,7 +1165,7 @@
                 "minUnits": 6,
                 "style": 4,
                 "variables": {
-                    "BonusAS": 95.0,
+                    "BonusAS": 105.0,
                     "BurstDuration": 2.5,
                     "IncreasePct": 0.5
                 }
@@ -1175,7 +1175,7 @@
                 "minUnits": 8,
                 "style": 4,
                 "variables": {
-                    "BonusAS": 140.0,
+                    "BonusAS": 150.0,
                     "BurstDuration": 2.5,
                     "IncreasePct": 0.5
                 }
@@ -1263,22 +1263,22 @@
                 "minUnits": 9,
                 "style": 5,
                 "variables": {
-                    "EmblemBonus": 95.0,
+                    "EmblemBonus": 106.25,
                     "Mana": 20.0,
                     "NumberOfSpirits": 4.0,
                     "SpiritDuration": 4.0,
-                    "TooltipBonus": 3.799999952316284,
-                    "{18bfc1ac}": 34.20000076293945,
-                    "{1b8cd16a}": 95.0,
-                    "{27b17444}": 95.0,
+                    "TooltipBonus": 4.25,
+                    "{18bfc1ac}": 38.25,
+                    "{1b8cd16a}": 106.25,
+                    "{27b17444}": 106.25,
                     "{3fc62f6f}": 2.0,
-                    "{4df03474}": 684.0,
+                    "{4df03474}": 765.0,
                     "{53912082}": 1.0,
-                    "{7d34708f}": 19.0,
-                    "{b9a6ee1b}": 57.0,
-                    "{eb0c521b}": 57.0,
-                    "{ed124bdb}": 95.0,
-                    "{f6b4b588}": 11.399999618530273
+                    "{7d34708f}": 21.25,
+                    "{b9a6ee1b}": 63.75,
+                    "{eb0c521b}": 63.75,
+                    "{ed124bdb}": 106.25,
+                    "{f6b4b588}": 12.75
                 }
             }
         ],

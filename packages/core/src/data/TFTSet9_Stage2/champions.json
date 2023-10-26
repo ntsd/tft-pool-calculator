@@ -113,8 +113,8 @@
                     "name": "EssenceDamage",
                     "value": [
                         0.0,
-                        90.0,
-                        135.0,
+                        105.0,
+                        150.0,
                         1000.0,
                         0.0,
                         0.0,
@@ -351,7 +351,7 @@
         "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Azir_Mobile.TFT_Set9.tex",
         "stats": {
             "armor": 30.0,
-            "attackSpeed": 0.75,
+            "attackSpeed": 0.800000011920929,
             "critChance": 0.25,
             "critMultiplier": 1.399999976158142,
             "damage": 30.0,
@@ -400,13 +400,13 @@
                 {
                     "name": "PercentAD",
                     "value": [
-                        0.699999988079071,
-                        0.699999988079071,
-                        0.699999988079071,
-                        0.699999988079071,
-                        0.699999988079071,
-                        0.699999988079071,
-                        0.699999988079071
+                        0.8500000238418579,
+                        0.8500000238418579,
+                        0.8500000238418579,
+                        0.8500000238418579,
+                        0.8500000238418579,
+                        0.8500000238418579,
+                        0.8500000238418579
                     ]
                 },
                 {
@@ -454,14 +454,14 @@
         "name": "Bel'Veth",
         "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_BelVeth_Mobile.TFT_Set9.tex",
         "stats": {
-            "armor": 50.0,
+            "armor": 60.0,
             "attackSpeed": 0.8500000238418579,
             "critChance": 0.25,
             "critMultiplier": 1.399999976158142,
             "damage": 80.0,
             "hp": 1100.0,
             "initialMana": 20.0,
-            "magicResist": 50.0,
+            "magicResist": 60.0,
             "mana": 70.0,
             "range": 2.0
         },
@@ -585,9 +585,9 @@
                     "name": "PercentDamageFalloff",
                     "value": [
                         0.0,
-                        0.8199999928474426,
-                        0.8500000238418579,
                         0.8999999761581421,
+                        0.949999988079071,
+                        1.0,
                         0.0,
                         0.0,
                         0.0
@@ -1123,8 +1123,8 @@
                     "name": "BaseDamage",
                     "value": [
                         0.0,
-                        75.0,
-                        111.0,
+                        80.0,
+                        120.0,
                         240.0,
                         0.0,
                         0.0,
@@ -1158,7 +1158,7 @@
             "critMultiplier": 1.399999976158142,
             "damage": 45.0,
             "hp": 850.0,
-            "initialMana": 40.0,
+            "initialMana": 60.0,
             "magicResist": 35.0,
             "mana": 120.0,
             "range": 4.0
@@ -1418,13 +1418,13 @@
                 {
                     "name": "StatAmp",
                     "value": [
-                        0.3499999940395355,
-                        0.3499999940395355,
-                        0.3499999940395355,
-                        0.3499999940395355,
-                        0.3499999940395355,
-                        0.3499999940395355,
-                        0.3499999940395355
+                        0.4000000059604645,
+                        0.4000000059604645,
+                        0.4000000059604645,
+                        0.4000000059604645,
+                        0.4000000059604645,
+                        0.4000000059604645,
+                        0.4000000059604645
                     ]
                 },
                 {
@@ -1460,14 +1460,14 @@
         "name": "Nautilus",
         "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Nautilus_Mobile.TFT_Set9_Stage2.tex",
         "stats": {
-            "armor": 35.0,
+            "armor": 40.0,
             "attackSpeed": 0.5,
             "critChance": 0.25,
             "critMultiplier": 1.399999976158142,
             "damage": 80.0,
             "hp": 950.0,
             "initialMana": 60.0,
-            "magicResist": 35.0,
+            "magicResist": 40.0,
             "mana": 140.0,
             "range": 1.0
         },
@@ -1499,8 +1499,8 @@
                     "name": "ShimmerDamagePerSec",
                     "value": [
                         0.0,
-                        75.0,
-                        115.0,
+                        85.0,
+                        125.0,
                         425.0,
                         0.0,
                         0.0,
@@ -1536,7 +1536,7 @@
             "hp": 750.0,
             "initialMana": 0,
             "magicResist": 30.0,
-            "mana": 50.0,
+            "mana": 45.0,
             "range": 4.0
         },
         "tileIcon": "ASSETS/Characters/TFT9_Silco/HUD/TFT9_Silco_Square.TFT_Set9_Stage2.tex",
@@ -2052,9 +2052,9 @@
                 {
                     "name": "PercentHealth",
                     "value": [
-                        0.014999999664723873,
-                        0.014999999664723873,
-                        0.014999999664723873,
+                        0.009999999776482582,
+                        0.009999999776482582,
+                        0.009999999776482582,
                         0.10000000149011612,
                         0.019999999552965164,
                         0.019999999552965164,
@@ -2366,9 +2366,9 @@
                     "name": "MagicDamage",
                     "value": [
                         0.0,
-                        180.0,
-                        270.0,
-                        440.0,
+                        170.0,
+                        255.0,
+                        420.0,
                         0.0,
                         0.0,
                         0.0
@@ -2678,9 +2678,9 @@
             "critMultiplier": 1.399999976158142,
             "damage": 60.0,
             "hp": 800.0,
-            "initialMana": 0,
+            "initialMana": 15.0,
             "magicResist": 50.0,
-            "mana": 65.0,
+            "mana": 85.0,
             "range": 1.0
         },
         "tileIcon": "ASSETS/Characters/TFT9_Taric/HUD/TFT9_Taric_Square.TFT_Set9.tex",
@@ -2700,9 +2700,9 @@
                     "name": "MagicDamage",
                     "value": [
                         0.0,
-                        245.0,
-                        365.0,
-                        600.0,
+                        220.0,
+                        330.0,
+                        550.0,
                         0.0,
                         0.0,
                         0.0
@@ -2850,8 +2850,8 @@
                     "name": "CleaveDamage",
                     "value": [
                         75.0,
-                        0.6499999761581421,
-                        0.6499999761581421,
+                        0.550000011920929,
+                        0.550000011920929,
                         1.0,
                         0.5,
                         0.5,
@@ -2862,8 +2862,8 @@
                     "name": "AttackSpeed",
                     "value": [
                         0.20000000298023224,
-                        0.20000000298023224,
-                        0.20000000298023224,
+                        0.18000000715255737,
+                        0.18000000715255737,
                         0.4000000059604645,
                         0.20000000298023224,
                         0.20000000298023224,
@@ -3587,9 +3587,9 @@
                     "name": "MagicDamage",
                     "value": [
                         0.0,
-                        225.0,
-                        340.0,
-                        550.0,
+                        240.0,
+                        360.0,
+                        580.0,
                         0.0,
                         0.0,
                         0.0
@@ -3634,9 +3634,9 @@
             "critMultiplier": 1.399999976158142,
             "damage": 50.0,
             "hp": 650.0,
-            "initialMana": 10.0,
+            "initialMana": 0,
             "magicResist": 25.0,
-            "mana": 60.0,
+            "mana": 50.0,
             "range": 4.0
         },
         "tileIcon": "ASSETS/Characters/TFT9_MissFortune/HUD/TFT9_MissFortune_Square.TFT_Set9_Stage2.tex",
@@ -3732,14 +3732,14 @@
         "name": "Nasus",
         "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Nasus_Mobile.TFT_Set9.tex",
         "stats": {
-            "armor": 50.0,
+            "armor": 55.0,
             "attackSpeed": 0.699999988079071,
             "critChance": 0.25,
             "critMultiplier": 1.399999976158142,
             "damage": 60.0,
             "hp": 1000.0,
             "initialMana": 70.0,
-            "magicResist": 50.0,
+            "magicResist": 55.0,
             "mana": 150.0,
             "range": 1.0
         },
@@ -4238,902 +4238,6 @@
     },
     {
         "ability": {
-            "desc": "Create a portal to Demacia that protects allies for @PortalDuration@ seconds. Allies within the zone gain <TFTBonus>@ModifiedShield@ (%i:scaleAP%)</TFTBonus> Shield. If an ally leaves the safety of the portal, they are healed for <scaleHealth>@ModifiedHeal@ (%i:scaleAP%)</scaleHealth>.<br><br>When the portal expires, enemies within are dealt <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage.<br>",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Demacia",
-            "variables": [
-                {
-                    "name": "Shield",
-                    "value": [
-                        300.0,
-                        600.0,
-                        900.0,
-                        9999.0,
-                        1500.0,
-                        1800.0,
-                        2100.0
-                    ]
-                },
-                {
-                    "name": "Heal",
-                    "value": [
-                        0.0,
-                        250.0,
-                        375.0,
-                        9999.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "Damage",
-                    "value": [
-                        125.0,
-                        300.0,
-                        450.0,
-                        2000.0,
-                        625.0,
-                        750.0,
-                        875.0
-                    ]
-                },
-                {
-                    "name": "PortalDuration",
-                    "value": [
-                        2.0,
-                        2.0,
-                        2.0,
-                        5.0,
-                        2.0,
-                        2.0,
-                        2.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeDemacia",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 50.0,
-            "magicResist": 30.0,
-            "mana": 110.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Bandle City under the most expensive unit on your bench. They are summoned to the battlefield with @ModifiedBonusMana@ (%i:scaleAP%) bonus Mana and are...slightly smaller?<br><br>If there are no units left on your bench, Ryze summons a random high tier unit instead.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Bandle City",
-            "variables": [
-                {
-                    "name": "BonusMana",
-                    "value": [
-                        0.0,
-                        25.0,
-                        70.0,
-                        200.0,
-                        160.0,
-                        200.0,
-                        240.0
-                    ]
-                },
-                {
-                    "name": "FiveCostSummonOdds",
-                    "value": [
-                        0.0,
-                        0.30000001192092896,
-                        0.699999988079071,
-                        1.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "FourCostSummonOdds",
-                    "value": [
-                        0.0,
-                        0.4000000059604645,
-                        0.30000001192092896,
-                        0.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "BaseStarLevelSummon",
-                    "value": [
-                        0.0,
-                        1.0,
-                        1.0,
-                        3.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeBandleCity",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 30.0,
-            "hp": 1111.0,
-            "initialMana": 30.0,
-            "magicResist": 30.0,
-            "mana": 75.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to the Freljord under a random group of enemies for @PortalDuration@ seconds. The freezing winds deal <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage to enemies within two hexes over the duration and apply Permafrost, a permanent <TFTKeyword>Chill</TFTKeyword>.<br><br>If enemies are already affected by Permafrost, they are instead Stunned for the duration.<br><br><tftitemrules><tftbold>Chill:</tftbold> Reduce Attack Speed by @AttackSpeedSlow*100@%</tftitemrules>",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Freljord",
-            "variables": [
-                {
-                    "name": "Damage",
-                    "value": [
-                        0.0,
-                        300.0,
-                        450.0,
-                        3500.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "PortalDuration",
-                    "value": [
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0
-                    ]
-                },
-                {
-                    "name": "AttackSpeedSlow",
-                    "value": [
-                        0.30000001192092896,
-                        0.30000001192092896,
-                        0.30000001192092896,
-                        0.30000001192092896,
-                        0.30000001192092896,
-                        0.30000001192092896,
-                        0.30000001192092896
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeFreljord",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 30.0,
-            "magicResist": 30.0,
-            "mana": 65.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Ionia in the center of the battlefield, summoning forth a Spirit Tree that affects the <scaleLevel>@NumUnits@</scaleLevel> closest units. Allies gain <TFTBonus>@BonusAttackSpeed*100@%</TFTBonus> Attack Speed for @BuffDuration@ seconds and are healed for <scaleHealth>@ModifiedHeal@ (%i:scaleAP%)</scaleHealth> over the duration. Enemies dance, dealing <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage and Stunning them for <scaleLevel>@StunDuration@</scaleLevel> seconds.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Ionia",
-            "variables": [
-                {
-                    "name": "NumUnits",
-                    "value": [
-                        5.0,
-                        5.0,
-                        7.0,
-                        20.0,
-                        9.0,
-                        10.0,
-                        11.0
-                    ]
-                },
-                {
-                    "name": "BonusAttackSpeed",
-                    "value": [
-                        0.30000001192092896,
-                        0.30000001192092896,
-                        0.4000000059604645,
-                        3.0,
-                        0.800000011920929,
-                        0.8999999761581421,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "Heal",
-                    "value": [
-                        200.0,
-                        400.0,
-                        500.0,
-                        3000.0,
-                        1000.0,
-                        1200.0,
-                        1400.0
-                    ]
-                },
-                {
-                    "name": "BuffDuration",
-                    "value": [
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0
-                    ]
-                },
-                {
-                    "name": "StunDuration",
-                    "value": [
-                        1.5,
-                        2.0,
-                        2.5,
-                        20.0,
-                        3.5,
-                        4.0,
-                        4.5
-                    ]
-                },
-                {
-                    "name": "Damage",
-                    "value": [
-                        150.0,
-                        175.0,
-                        275.0,
-                        1500.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeIonia",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 50.0,
-            "magicResist": 30.0,
-            "mana": 125.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Noxus that spews out a torrent of weapons and armor, granting <scaleLevel>@NumItems@</scaleLevel> completed items to random allies with open slots, and throwing <scaleLevel>@NumAxes@</scaleLevel> axes towards random enemies that deal <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage each.<br><br>If an ally would recieve an item while all slots are full, they instead gain a stacking @DamageAmp*100@% damage increase for the rest of combat.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Noxus",
-            "variables": [
-                {
-                    "name": "NumItems",
-                    "value": [
-                        2.0,
-                        3.0,
-                        4.0,
-                        10.0,
-                        6.0,
-                        7.0,
-                        8.0
-                    ]
-                },
-                {
-                    "name": "NumAxes",
-                    "value": [
-                        3.0,
-                        4.0,
-                        5.0,
-                        12.0,
-                        7.0,
-                        8.0,
-                        9.0
-                    ]
-                },
-                {
-                    "name": "MagicDamage",
-                    "value": [
-                        200.0,
-                        150.0,
-                        225.0,
-                        2000.0,
-                        400.0,
-                        450.0,
-                        500.0
-                    ]
-                },
-                {
-                    "name": "DamageAmp",
-                    "value": [
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeNoxus",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 70.0,
-            "magicResist": 30.0,
-            "mana": 120.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Piltover that launches an enforcer grenade towards the largest clump of enemies, dealing <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage to enemies within two hexes and creating a containment area for <scaleLevel>@AreaDuration@</scaleLevel> seconds. Enemies are unable to leave the area, and <scaleLevel>@PercentSharedDamage*100@%</scaleLevel> of the damage dealt to them is also dealt to all other enemies within.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Piltover",
-            "variables": [
-                {
-                    "name": "Damage",
-                    "value": [
-                        0.20000000298023224,
-                        275.0,
-                        425.0,
-                        3000.0,
-                        0.6000000238418579,
-                        0.699999988079071,
-                        0.800000011920929
-                    ]
-                },
-                {
-                    "name": "PercentSharedDamage",
-                    "value": [
-                        0.15000000596046448,
-                        0.15000000596046448,
-                        0.30000001192092896,
-                        5.0,
-                        0.3499999940395355,
-                        0.4000000059604645,
-                        0.44999998807907104
-                    ]
-                },
-                {
-                    "name": "AreaDuration",
-                    "value": [
-                        4.0,
-                        3.0,
-                        4.0,
-                        8.0,
-                        4.0,
-                        4.0,
-                        4.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzePiltover",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 30.0,
-            "magicResist": 30.0,
-            "mana": 100,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Mark the @NumAllies@ ally's soul(s) with the lowest current health to be reclaimed by the Shadow Isles. After they die, they return to the battlefield with <scaleHealth>@ModifiedHealthOnReturn@ (%i:scaleAP%)</scaleHealth> of their maximum Health.<br><br>If all living allies are already marked, Ryze instead resurrects a deceased ally.<br><br> Ryze cannot resurrect himself.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Shadow Isles",
-            "variables": [
-                {
-                    "name": "PercentHealthOnReturn",
-                    "value": [
-                        0.0,
-                        0.4000000059604645,
-                        0.800000011920929,
-                        3.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "NumAllies",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        10.0,
-                        5.0,
-                        6.0,
-                        7.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeShadowIsles",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 40.0,
-            "magicResist": 30.0,
-            "mana": 80.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Shurima, summoning a roaming sand tornado that deals <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage to enemies hit and knocks them up, <TFTKeyword>Stunning</TFTKeyword> them for <scaleLevel>@KnockupDuration@</scaleLevel> second(s).<br><br>The tornado has a chance to unearth buried treasures and gold as it travels.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Shurima",
-            "variables": [
-                {
-                    "name": "Damage",
-                    "value": [
-                        0.0,
-                        175.0,
-                        275.0,
-                        2500.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "KnockupDuration",
-                    "value": [
-                        0.75,
-                        1.0,
-                        1.25,
-                        3.0,
-                        1.75,
-                        2.0,
-                        2.25
-                    ]
-                },
-                {
-                    "name": "NumberOfLootRolls",
-                    "value": [
-                        3.0,
-                        3.0,
-                        3.0,
-                        3.0,
-                        3.0,
-                        3.0,
-                        3.0
-                    ]
-                },
-                {
-                    "name": "ChanceToSpawnGold",
-                    "value": [
-                        0.25,
-                        0.20000000298023224,
-                        0.3499999940395355,
-                        1.0,
-                        0.25,
-                        0.25,
-                        0.25
-                    ]
-                },
-                {
-                    "name": "ChanceToSpawnItem",
-                    "value": [
-                        0.25,
-                        0.019999999552965164,
-                        0.05000000074505806,
-                        0.30000001192092896,
-                        0.25,
-                        0.25,
-                        0.25
-                    ]
-                },
-                {
-                    "name": "MinGold",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "MaxGold",
-                    "value": [
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeShurima",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 90.0,
-            "magicResist": 30.0,
-            "mana": 150.0,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to the skies above Mount Targon that beckons the current target. After a few seconds, they descend from the heavens as a meteor towards the largest group of enemies, dealing <magicDamage>@ModifiedPercentMaxHealth@ (%i:scaleAP%)</magicDamage> of the initial target's maximum Health as magic damage. Enemies in the epicenter are briefly knocked up.<br><br>If the target is the only enemy remaining, they never descend.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Targon",
-            "variables": [
-                {
-                    "name": "PercentMaxHealth",
-                    "value": [
-                        0.20000000298023224,
-                        0.18000000715255737,
-                        0.30000001192092896,
-                        1.0,
-                        0.6000000238418579,
-                        0.699999988079071,
-                        0.800000011920929
-                    ]
-                },
-                {
-                    "name": "DamageHexRadius",
-                    "value": [
-                        2.0,
-                        2.0,
-                        2.0,
-                        4.0,
-                        2.0,
-                        2.0,
-                        2.0
-                    ]
-                },
-                {
-                    "name": "KnockUpRadius",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        2.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "StunDuration",
-                    "value": [
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612
-                    ]
-                },
-                {
-                    "name": "ThreeStarStarfallDamage",
-                    "value": [
-                        0.0,
-                        0.0,
-                        0.0,
-                        999.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeTargon",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 30.0,
-            "magicResist": 30.0,
-            "mana": 100,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create <scaleLevel>@NumPortals@</scaleLevel> portals to Zaun, causing hired guns to fire at nearby enemies. Deals <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage and <TFTKeyword>Wounds</TFTKeyword>, @TooltipShredPercent@% <TFTKeyword>Shreds</TFTKeyword>, and @TooltipShredPercent@% <TFTKeyword>Sunders</TFTKeyword> for @DebuffDuration@ seconds. The more gold you have, the more powerful the portals become.<br><br><spellPassive>@Breakpoint1Gold@ Gold:</spellPassive> +@Breakpoint1BonusPortals@ portal. Portals fire a rocket that deals @SplashDamagePercent*100@% damage in a one-hex radius.<br><spellPassive>@Breakpoint2Gold@ Gold:</spellPassive> Double the portals. Summon @Breakpoint2BonusPortalsPerGold@ additional portals for every @GoldPerPortal@ Gold more.<br><br><rules><tftbold>Wound:</tftbold> Reduce healing received by 50%<br><tftbold>Shred:</tftbold> Reduce Magic Resist<br><tftbold>Sunder:</tftbold> Reduce Armor</rules>",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Zaun",
-            "variables": [
-                {
-                    "name": "NumPortals",
-                    "value": [
-                        1.0,
-                        5.0,
-                        8.0,
-                        25.0,
-                        5.0,
-                        6.0,
-                        7.0
-                    ]
-                },
-                {
-                    "name": "Damage",
-                    "value": [
-                        100.0,
-                        125.0,
-                        230.0,
-                        2006.0,
-                        500.0,
-                        600.0,
-                        700.0
-                    ]
-                },
-                {
-                    "name": "DebuffDuration",
-                    "value": [
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0,
-                        6.0
-                    ]
-                },
-                {
-                    "name": "SplashDamagePercent",
-                    "value": [
-                        0.5,
-                        0.5,
-                        0.5,
-                        0.5,
-                        0.5,
-                        0.5,
-                        0.5
-                    ]
-                },
-                {
-                    "name": "Breakpoint1Gold",
-                    "value": [
-                        25.0,
-                        25.0,
-                        25.0,
-                        25.0,
-                        25.0,
-                        25.0,
-                        25.0
-                    ]
-                },
-                {
-                    "name": "Breakpoint2Gold",
-                    "value": [
-                        50.0,
-                        50.0,
-                        50.0,
-                        50.0,
-                        50.0,
-                        50.0,
-                        50.0
-                    ]
-                },
-                {
-                    "name": "Breakpoint1BonusPortals",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "Breakpoint2BonusPortalsPerGold",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "GoldPerPortal",
-                    "value": [
-                        20.0,
-                        20.0,
-                        20.0,
-                        20.0,
-                        20.0,
-                        20.0,
-                        20.0
-                    ]
-                },
-                {
-                    "name": "TooltipShredPercent",
-                    "value": [
-                        30.0,
-                        30.0,
-                        30.0,
-                        30.0,
-                        30.0,
-                        30.0,
-                        30.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeZaun",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 40.0,
-            "magicResist": 30.0,
-            "mana": 100,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
             "desc": "<spellPassive>Passive:</spellPassive> Gain <TFTBonus>@ModifiedOmnivamp@ (%i:scaleAP%)</TFTBonus> <TFTKeyword>Omnivamp</TFTKeyword>. <br><br><spellActive>Active:</spellActive> Deal <physicalDamage>@TotalDamage@ (%i:scaleAD%)</physicalDamage> physical damage. <br><br>Darkin Dagger: After casting, summon packmates that attack the first enemy hit for a total of <physicalDamage>@TotalPackmateDamage@ (%i:scaleAD%)</physicalDamage>.<br><br><rules><tftbold>Omnivamp:</tftbold> Heal for percentage of damage dealt</rules>",
             "icon": "ASSETS/Characters/Naafiri/HUD/Icons2D/Icons_Naafiri_E.Naafiri.dds",
             "name": "Eviscerate",
@@ -5300,14 +4404,14 @@
         "name": "Fiora",
         "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Fiora_Mobile.TFT_Set9_Stage2.tex",
         "stats": {
-            "armor": 40.0,
+            "armor": 45.0,
             "attackSpeed": 0.8999999761581421,
             "critChance": 0.25,
             "critMultiplier": 1.399999976158142,
             "damage": 75.0,
-            "hp": 850.0,
+            "hp": 950.0,
             "initialMana": 70.0,
-            "magicResist": 40.0,
+            "magicResist": 45.0,
             "mana": 140.0,
             "range": 1.0
         },
@@ -5741,9 +4845,9 @@
                     "name": "DelayedMagicDamage",
                     "value": [
                         175.0,
-                        210.0,
-                        315.0,
-                        490.0,
+                        155.0,
+                        235.0,
+                        380.0,
                         175.0,
                         175.0,
                         175.0
@@ -5902,238 +5006,6 @@
             "Darkin",
             "Slayer",
             "Juggernaut"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Bilgewater, summoning a giant treasure chest to fall on the largest cluster of enemies that deals <magicDamage>@ModifiedDamage@ (%i:scaleAP%)</magicDamage> magic damage. The size of this chest is increased by <TFTBonus>@PercentScalar*100@%</TFTBonus> for every <TFTBonus>@PerGoldScalar@</TFTBonus> gold you have.<br><br>Each enemy hit has a chance to knock gold or other treasures out of the chest, and that chance doubles if the chest kills the enemy.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Bilgewater",
-            "variables": [
-                {
-                    "name": "Damage",
-                    "value": [
-                        0.0,
-                        350.0,
-                        525.0,
-                        7777.0,
-                        0.0,
-                        0.0,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "PercentScalar",
-                    "value": [
-                        0.009999999776482582,
-                        0.009999999776482582,
-                        0.009999999776482582,
-                        0.009999999776482582,
-                        0.009999999776482582,
-                        0.009999999776482582,
-                        0.009999999776482582
-                    ]
-                },
-                {
-                    "name": "PerGoldScalar",
-                    "value": [
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0,
-                        2.0
-                    ]
-                },
-                {
-                    "name": "BaseLootPercent",
-                    "value": [
-                        0.05000000074505806,
-                        0.05000000074505806,
-                        0.07500000298023224,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "KillLootPercent",
-                    "value": [
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.15000000596046448,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "BaseGoldPercent",
-                    "value": [
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.15000000596046448,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "KillGoldPercent",
-                    "value": [
-                        0.20000000298023224,
-                        0.20000000298023224,
-                        0.30000001192092896,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "MinGold",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "MaxGold",
-                    "value": [
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeBilgewater",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 30.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 30.0,
-            "magicResist": 30.0,
-            "mana": 100,
-            "range": 4.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
-        ]
-    },
-    {
-        "ability": {
-            "desc": "Create a portal to Ixtal, coating the ground around the current target in a thicket of vines. After a brief delay, deal <magicDamage>@TotalDamage@ (%i:scaleArmor% %i:scaleMR%)</magicDamage> magic damage to enemies within and <TFTKeyword>Stun</TFTKeyword> enemies at the epicenter for <TFTBonus>@StunDuration@</TFTBonus> seconds with a knockup.<br><br>Allies within are wrapped in Barkskin, granting <scaleLevel>@ModifiedArmor@ (%i:scaleArmor%)</scaleLevel> Armor and <scaleLevel>@ModifiedMR@ (%i:scaleMR%)</scaleLevel> Magic Resistance for <TFTBonus>@ModifiedBarkskinDuration@ (%i:scaleAP%)</TFTBonus> seconds.",
-            "icon": "ASSETS/Characters/TFT9_Ryze/HUD/Icons2D/TFT9_Ryze_R.TFT_Set9.dds",
-            "name": "Realm Warp: Ixtal",
-            "variables": [
-                {
-                    "name": "ArmorScalar",
-                    "value": [
-                        1.5,
-                        2.0,
-                        3.0,
-                        15.0,
-                        1.5,
-                        1.5,
-                        1.5
-                    ]
-                },
-                {
-                    "name": "MRScalar",
-                    "value": [
-                        1.5,
-                        2.0,
-                        3.0,
-                        15.0,
-                        1.5,
-                        1.5,
-                        1.5
-                    ]
-                },
-                {
-                    "name": "StunDuration",
-                    "value": [
-                        2.0,
-                        2.0,
-                        2.5,
-                        10.0,
-                        2.0,
-                        2.0,
-                        2.0
-                    ]
-                },
-                {
-                    "name": "BarkskinDuration",
-                    "value": [
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0,
-                        4.0
-                    ]
-                },
-                {
-                    "name": "BarskinDefenceScalar",
-                    "value": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                }
-            ]
-        },
-        "apiName": "TFT9_RyzeIxtal",
-        "characterName": "TFT9_Ryze",
-        "cost": 5,
-        "icon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze.TFT_Set9.tex",
-        "name": "Ryze",
-        "squareIcon": "ASSETS/UX/TFT/ChampionSplashes/TFT9_Ryze_Mobile.TFT_Set9.tex",
-        "stats": {
-            "armor": 50.0,
-            "attackSpeed": 0.8500000238418579,
-            "critChance": 0.25,
-            "critMultiplier": 1.399999976158142,
-            "damage": 50.0,
-            "hp": 1111.0,
-            "initialMana": 60.0,
-            "magicResist": 50.0,
-            "mana": 120.0,
-            "range": 2.0
-        },
-        "tileIcon": "ASSETS/Characters/TFT9_Ryze/HUD/TFT9_Ryze_Square.TFT_Set9.dds",
-        "traits": [
-            "Wanderer",
-            "Invoker"
         ]
     }
 ]

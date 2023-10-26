@@ -1,8 +1,7 @@
 
 //LOL Client Features
-//@see https://overwolf.github.io/api/live-game-data/supported-launchers/league-of-legends
+//@see https://overwolf.github.io/api/live-game-data/supported-games/league-of-legends
 export const REQUIRED_FEATURES = [
-  'game_flow',
   'roster',
   'match_info',
 ];

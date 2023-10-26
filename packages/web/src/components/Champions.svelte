@@ -25,7 +25,7 @@
             costToColor[champion.cost]
           }-600 relative text-white text-xs md:text-md`}
         >
-          <img alt={champion.name} src={getCDragonImage(champion.squareIcon)} />
+          <img alt={champion.name} src={getCDragonImage(champion.tileIcon)} />
           <div class="text-center">
             {`${round(champion.curPool / champion.maxPool, 2)}`}
           </div>

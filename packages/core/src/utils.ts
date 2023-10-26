@@ -31,3 +31,7 @@ export function getCDragonImage(url: string) {
     .toLocaleLowerCase()
     .replace(".tex", ".png")}`;
 }
+
+export function getCDragonImageRelativePath(url: string) {
+  return url.toLocaleLowerCase().replace(".tex", ".png");
+}

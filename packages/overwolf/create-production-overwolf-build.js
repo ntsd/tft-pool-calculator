@@ -17,6 +17,7 @@ if (!existsSync(buildDir)) {
 // Moving index.html and static folder
 const index = "index.html";
 const staticDir = "static";
+const assetsDir = "assets";
 
 const customRename = (name) => {
   const oldPath = path.join(fileDir, name);
@@ -26,5 +27,6 @@ const customRename = (name) => {
 
 customRename(index);
 customRename(staticDir);
+customRename(assetsDir);
 
 console.log("Compiled successfully!");

@@ -1,9 +1,25 @@
 import requests
 import json 
+import os
+
+def cdragonPath(path: str) :
+    return f"https://raw.communitydragon.org/latest/game/{path}"
+
+def downlaodIntoPath(filePath: str, downloadPath: str):
+
+    os.makedirs(os.path.dirname(filePath), exist_ok=True)
+
+    print(f"downling {downloadPath}")
+
+    r = requests.get(downloadPath, allow_redirects=True)
+    open(filePath, 'wb').write(r.content)
+
 
 print("loading communitydragon data")
 
 setMutator = "TFTSet9_Stage2"
+assetDir = "./packages/core/src/data/"
+staticDir = "./packages/overwolf/public/"
 
 res = requests.get('https://raw.communitydragon.org/latest/cdragon/tft/en_us.json')
 
@@ -16,12 +32,26 @@ for setData in response["setData"]:
         champions = []
 
         for champion in setData["champions"]:
-            if len(champion["traits"]) > 0 and champion["cost"] > 0 and champion["cost"] < 6:
+            if len(champion["traits"]) > 0 and \
+                    champion["cost"] > 0 and \
+                    champion["cost"] < 6 and \
+                    champion["tileIcon"].endswith(".tex"):
+
                 champions.append(champion)
 
+                # download tile image
+                path = champion["tileIcon"].lower().replace('.tex', '.png')
+                downlaodIntoPath(staticDir + path, cdragonPath(path))
+        
+        for trait in traits:
+            if trait["icon"]:
+                path = trait["icon"].lower().replace('.tex', '.png')
+                downlaodIntoPath(staticDir + path, cdragonPath(path))
 
-with open("./packages/core/src/data/" + setMutator + "/traits.json", "w") as outfile:
+
+with open(assetDir + setMutator + "/traits.json", "w") as outfile:
     outfile.write(json.dumps(traits, indent=4))
 
-with open("./packages/core/src/data/" + setMutator + "/champions.json", "w") as outfile:
+with open(assetDir + setMutator + "/champions.json", "w") as outfile:
     outfile.write(json.dumps(champions, indent=4))
+

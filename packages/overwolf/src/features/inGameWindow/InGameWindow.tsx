@@ -9,7 +9,7 @@ import {
   traits,
   traitsMap,
   Player,
-  getCDragonImage,
+  getCDragonImageRelativePath,
   filterTraits,
 } from "tft-pool-calculator-core";
 import PoolModal from "components/PoolModal/PoolModal";
@@ -230,10 +230,10 @@ const InGameWindow = () => {
     });
 
     overwolf.windows.minimize(WINDOW_NAMES.INGAME);
-    await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
+    await new Promise((resolve) => setTimeout(resolve, 100)); // sleep 0.2 sec
     // https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0
     await overwolf.utils.sendKeyStroke("Space");
-    await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
+    await new Promise((resolve) => setTimeout(resolve, 100)); // sleep 0.2 sec
 
     let currentPlayerIndex = localPlayerIndex;
     while (true) {
@@ -251,7 +251,7 @@ const InGameWindow = () => {
       }
 
       await overwolf.utils.sendKeyStroke("D1");
-      await new Promise((resolve) => setTimeout(resolve, 200)); // sleep 0.2 sec
+      await new Promise((resolve) => setTimeout(resolve, 100)); // sleep 0.2 sec
 
       const traitStrArr = await takeScreenShotOCR();
 
@@ -296,7 +296,7 @@ const InGameWindow = () => {
               >
                 <img
                   alt={t.name}
-                  src={getCDragonImage(t.icon)}
+                  src={getCDragonImageRelativePath(t.icon)}
                   className="w-full h-full"
                 ></img>
               </div>
@@ -457,7 +457,7 @@ const InGameWindow = () => {
                         settingsAtom.set({ ...newSetting });
                       }}
                     >
-                      <img alt={trait.name} src={getCDragonImage(trait.icon)} />
+                      <img alt={trait.name} src={getCDragonImageRelativePath(trait.icon)} />
                       <div className="text-center">{trait.name}</div>
                     </div>
                   );
