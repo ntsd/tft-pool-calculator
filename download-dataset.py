@@ -9,7 +9,7 @@ def downlaodIntoPath(filePath: str, downloadPath: str):
 
     os.makedirs(os.path.dirname(filePath), exist_ok=True)
 
-    print(f"downling {downloadPath}")
+    print(f"downloading {downloadPath}")
 
     r = requests.get(downloadPath, allow_redirects=True)
     open(filePath, 'wb').write(r.content)
@@ -50,8 +50,8 @@ for setData in response["setData"]:
 
 
 with open(assetDir + setMutator + "/traits.json", "w") as outfile:
-    outfile.write(json.dumps(traits, indent=4))
+    outfile.write(json.dumps(traits, indent=0))
 
 with open(assetDir + setMutator + "/champions.json", "w") as outfile:
-    outfile.write(json.dumps(champions, indent=4))
+    outfile.write(json.dumps(champions, indent=0))
 
