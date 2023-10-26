@@ -50,8 +50,8 @@ for setData in response["setData"]:
 
 
 with open(assetDir + setMutator + "/traits.json", "w") as outfile:
-    outfile.write(json.dumps(traits, indent=0))
+    outfile.write(json.dumps(traits, separators=(',', ':')))
 
 with open(assetDir + setMutator + "/champions.json", "w") as outfile:
-    outfile.write(json.dumps(champions, indent=0))
+    outfile.write(json.dumps(champions, separators=(',', ':')))
 
