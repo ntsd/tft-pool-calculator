@@ -147,9 +147,6 @@ settingsAtom.subscribe((settings) => {
     newTraitsPool[traitName].curPool = newCurPool;
   });
 
-  console.log("newChampionsPool", newChampionsPool);
-  console.log("newTraitsPool", newTraitsPool);
-
   championsPoolAtom.set({ ...newChampionsPool });
   traitsPoolAtom.set({ ...newTraitsPool });
 });

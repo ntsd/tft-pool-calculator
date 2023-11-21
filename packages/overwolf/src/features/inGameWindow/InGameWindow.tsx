@@ -457,7 +457,10 @@ const InGameWindow = () => {
                         settingsAtom.set({ ...newSetting });
                       }}
                     >
-                      <img alt={trait.name} src={getCDragonImageRelativePath(trait.icon)} />
+                      <img
+                        alt={trait.name}
+                        src={getCDragonImageRelativePath(trait.icon)}
+                      />
                       <div className="text-center">{trait.name}</div>
                     </div>
                   );
