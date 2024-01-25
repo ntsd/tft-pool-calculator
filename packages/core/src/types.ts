@@ -61,6 +61,7 @@ export interface Player {
   traits: Trait[];
   isDead: boolean;
   isLocalplayer: boolean;
+  screenshot?: string;
 }
 
 export interface Settings {

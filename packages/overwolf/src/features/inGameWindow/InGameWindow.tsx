@@ -11,6 +11,7 @@ import {
   Player,
   getCDragonImageRelativePath,
   filterTraits,
+  championsPoolAtom,
 } from "tft-pool-calculator-core";
 import PoolModal from "components/PoolModal/PoolModal";
 import { createWorker } from "tesseract.js";
@@ -137,8 +138,8 @@ await ocrWorker.setParameters({
   tessedit_char_whitelist: getCharWhiteList(),
 });
 
-async function takeScreenShotOCR() {
-  return new Promise<string[]>((resolve, reject) => {
+async function takeScreenShot() {
+  return new Promise<string>((resolve, reject) => {
     overwolf.media.getScreenshotUrl(
       {
         roundAwayFromZero: true,
@@ -158,33 +159,7 @@ async function takeScreenShotOCR() {
           reject(new Error("error to get screenshot url"));
           return;
         }
-        Image.load(result.url).then((image) => {
-          let grey = image.grey({
-            algorithm: (red: number, green: number, blue: number) => {
-              if (red > 200 && green > 200 && blue > 200) {
-                return 0;
-              }
-              return 255;
-            },
-          });
-          grey.toBlob().then((blob) => {
-            ocrWorker.recognize(blob, {}).then((result) => {
-              // console.log("result", result.data);
-              let traits: string[] = [];
-              result.data.text
-                .trim()
-                .split(/\s+/)
-                .forEach((word) => {
-                  const closestTrait = getCloseTrait(word);
-                  if (closestTrait !== "") {
-                    traits.push(closestTrait);
-                  }
-                });
-              // console.log("traits", traits);
-              resolve(traits);
-            });
-          });
-        });
+        resolve(result.url);
       }
     );
   });
@@ -199,6 +174,8 @@ const InGameWindow = () => {
   const selectTraitsModalRef = useRef<HTMLDialogElement>(null);
   const [searchValue, setSearchValue] = useState("");
   const searchInput = useRef<HTMLInputElement>(null);
+  const [shopSlots, setShopSlots] = useState<string[]>([]);
+  const championsPool = useStore(championsPoolAtom);
 
   const handleSelectTrait = (index: number) => {
     setSearchValue("");
@@ -207,16 +184,50 @@ const InGameWindow = () => {
     searchInput.current?.focus();
   };
 
+  async function ocr(url: string) {
+    return new Promise<string[]>((resolve, reject) => {
+      Image.load(url).then((image) => {
+        let grey = image.grey({
+          algorithm: (red: number, green: number, blue: number) => {
+            if (red > 200 && green > 200 && blue > 200) {
+              return 0;
+            }
+            return 255;
+          },
+        });
+        grey.toBlob().then((blob) => {
+          ocrWorker.recognize(blob, {}).then((result) => {
+            // console.log("result", result.data);
+            let traits: string[] = [];
+            result.data.text
+              .trim()
+              .split(/\s+/)
+              .forEach((word) => {
+                const closestTrait = getCloseTrait(word);
+                if (closestTrait !== "") {
+                  traits.push(closestTrait);
+                }
+              });
+            resolve(traits);
+          });
+        });
+      });
+    });
+  }
+
   const screenshotAndOCR = async () => {
     const newSetting = settings;
-    const traitStrArr = await takeScreenShotOCR();
-    newSetting.players[selectingIndex].traits = traitStrArr
-      .filter((t) => !filterTraits.includes(t))
-      .slice(0, 2)
-      .map((traitStr) => traitsMap[traitStr]);
-    setSearchValue("");
-    settingsAtom.set({ ...newSetting });
-    selectTraitsModalRef.current?.close();
+    const screenshot = await takeScreenShot();
+    ocr(screenshot).then((traitStrArr) => {
+      newSetting.players[selectingIndex].traits = traitStrArr
+        .filter((t) => !filterTraits.includes(t))
+        .slice(0, 2)
+        .map((traitStr) => traitsMap[traitStr]);
+      newSetting.players[selectingIndex].screenshot = screenshot;
+      setSearchValue("");
+      settingsAtom.set({ ...newSetting });
+      selectTraitsModalRef.current?.close();
+    });
   };
 
   const screenshotAndOCRAll = async () => {
@@ -253,20 +264,23 @@ const InGameWindow = () => {
       await overwolf.utils.sendKeyStroke("D1");
       await new Promise((resolve) => setTimeout(resolve, 100)); // sleep 0.2 sec
 
-      const traitStrArr = await takeScreenShotOCR();
-
-      console.log(
-        "currentPlayerIndex",
-        currentPlayerIndex,
-        "traitStrArr",
-        traitStrArr
-      );
-      if (traitStrArr.length > 0) {
-        newPlayers[currentPlayerIndex].traits = await traitStrArr
-          .filter((t) => !filterTraits.includes(t))
-          .slice(0, 2)
-          .map((traitStr) => traitsMap[traitStr]);
-      }
+      const screenshot = await takeScreenShot();
+      const thisPlayerIndex = currentPlayerIndex;
+      ocr(screenshot).then((traitStrArr) => {
+        console.log(
+          "currentPlayerIndex",
+          thisPlayerIndex,
+          "traitStrArr",
+          traitStrArr
+        );
+        if (traitStrArr.length > 0) {
+          newPlayers[thisPlayerIndex].traits = traitStrArr
+            .filter((t) => !filterTraits.includes(t))
+            .slice(0, 2)
+            .map((traitStr) => traitsMap[traitStr]);
+          newPlayers[thisPlayerIndex].screenshot = screenshot;
+        }
+      });
     }
 
     settingsAtom.set({
@@ -350,10 +364,37 @@ const InGameWindow = () => {
       // @ts-ignore
       handleRoster(roster["player_status"]);
     }
+    const store = info["store"];
+    if (store) {
+      // @ts-ignore
+      const pieces = JSON.parse(store["shop_pieces"]);
+      const slot1 = pieces["slot_1"]["name"];
+      const slot2 = pieces["slot_2"]["name"];
+      const slot3 = pieces["slot_3"]["name"];
+      const slot4 = pieces["slot_4"]["name"];
+      const slot5 = pieces["slot_5"]["name"];
+      setShopSlots([slot1, slot2, slot3, slot4, slot5]);
+    }
   }, [info]);
 
   return (
     <div className="p-0 m-0 overflow-hidden w-screen h-screen relative">
+      <div className="absolute bottom-0 right-[170px] w-[170px] h-[170px] flex flex-col">
+        {shopSlots.map((slot) => (
+          <p>
+            {slot}:{" "}
+            {
+              Object.values(championsPool).find((c) => c.apiName === slot)
+                ?.curPool
+            }
+            /
+            {
+              Object.values(championsPool).find((c) => c.apiName === slot)
+                ?.maxPool
+            }
+          </p>
+        ))}
+      </div>
       <div className="players-container">
         {createPlayerBox(7)}
         {createPlayerBox(0)}
