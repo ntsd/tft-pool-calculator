@@ -17,7 +17,7 @@ def downlaodIntoPath(filePath: str, downloadPath: str):
 
 print("loading communitydragon data")
 
-setMutator = "TFTSet10"
+setMutator = "TFTSet11"
 assetDir = "./packages/core/src/data/"
 staticDir = "./packages/overwolf/public/"
 
